@@ -21,3 +21,8 @@ nav {
     display: inline-block;
     list-style: none;
   }
+
+  .left {
+    width: 20%;
+    float: left;
+  }
