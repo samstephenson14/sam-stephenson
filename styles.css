@@ -15,6 +15,9 @@ nav {
     list-style: none;
     margin: 0;
     align-items: right;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
   }
   
   li {
@@ -25,7 +28,4 @@ nav {
   .left {
     width: 20%;
     float: left;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
   }
