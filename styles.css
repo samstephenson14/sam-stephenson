@@ -3,3 +3,10 @@ body {
     background: grey;
     text-align: center;
 }
+
+
+nav {
+    background-color: OrangeRed;
+    color: White;
+    padding: 0.75rem 1.25rem;
+  }
