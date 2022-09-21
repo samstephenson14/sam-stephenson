@@ -1,5 +1,12 @@
-body {
+* {
     margin: 0;
     background: grey;
     text-align: center;
+}
+
+.container {
+    display: flex;
+    align-items: left;
+    background: black;
+    background-color: white;
 }
