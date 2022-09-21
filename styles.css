@@ -10,20 +10,4 @@ nav {
     background-color: OrangeRed;
     color: White;
     padding: 0.75rem 1.25rem;
-  }
-
-  .left {
-    width: 20%;
-    float: left;
-  }
-
-  .left .contacts {
-    list-style: none;
-    margin: 0;
-    align-items: right;
-    display: block;
-    flex-wrap: wrap;
-    align-content: center;
-    padding: 5px;
-  }
-  
+  }  
