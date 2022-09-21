@@ -15,7 +15,7 @@ nav {
     list-style: none;
     margin: 0;
     align-items: right;
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     align-content: center;
   }
