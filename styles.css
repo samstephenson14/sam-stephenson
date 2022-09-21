@@ -1,13 +1,47 @@
 body {
     margin: 0;
     padding: 0;
-    background: grey;
+    background: rgb(240, 239, 239);
     font-family: "Roboto" sans-serif;
 }
 
+.page {
+  background: #fff;
+  width: 100rem;
+  padding: 3rem;
+  margin: 1rem auto;
+  border-radius: 1.5rem;
+}
 
-nav {
-    background-color: OrangeRed;
+.container {
+    background-color: #5f9ea0;
     color: White;
     padding: 0.75rem 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 5px solid black;
   }  
+
+  .container .left {
+    display: grid;
+    justify-items: auto;
+    align-items: left;
+    font-size: 2rem;
+  }
+
+  .container .right {
+    width: 100%;
+    display: grid;
+    justify-items: end;
+  }
+  .container .right .socials{
+    list-style: none;
+    display: inline-block;
+  }
+
+  li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
