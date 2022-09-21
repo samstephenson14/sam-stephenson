@@ -23,5 +23,6 @@ nav {
     display: block;
     flex-wrap: wrap;
     align-content: center;
+    padding: 5px;
   }
   
