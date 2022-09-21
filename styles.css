@@ -14,11 +14,10 @@ nav {
   ul {
     list-style: none;
     margin: 0;
-
+    align-items: right;
   }
   
   li {
     display: inline-block;
     list-style: none;
-    align-items: left;
   }
