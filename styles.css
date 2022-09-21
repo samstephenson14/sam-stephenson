@@ -15,14 +15,15 @@ nav {
     list-style: none;
     margin: 0;
     align-items: right;
-    display: block;
-    flex-wrap: wrap;
-    align-content: center;
+  
   }
   
   li {
     display: inline-block;
     list-style: none;
+    display: block;
+    flex-wrap: wrap;
+    align-content: center;
   }
 
   .left {
