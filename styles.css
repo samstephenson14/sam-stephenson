@@ -25,4 +25,7 @@ nav {
   .left {
     width: 20%;
     float: left;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
   }
