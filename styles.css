@@ -11,6 +11,9 @@ body {
   padding: 3rem;
   margin: 1rem auto;
   border-radius: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: auto;
 }
 
 .container {
@@ -20,6 +23,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     border: 5px solid black;
+    width: auto;
   }  
 
   .container .left {
@@ -45,3 +49,13 @@ body {
     padding-right: 5px;
   }
   
+  .headshot {
+    height: 200px;
+    width: 175px;
+    border-radius: 100%;
+  }
+
+  .contacts {
+    max-width: 300px;
+    border-right: 5px solid lightgray;
+  }
