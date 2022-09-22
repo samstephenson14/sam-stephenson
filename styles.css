@@ -59,3 +59,14 @@ body {
     max-width: 300px;
     border-right: 5px solid lightgray;
   }
+
+  .cv div {
+    grid-template-rows: 1fr 1fr 1fr;
+    border-bottom: 5px solid lightgrey;
+    margin: 5px;
+    padding: 0;
+  }
+
+  .cv div h2 {
+    font-style: italic;
+  }
