@@ -16,6 +16,18 @@ body {
   height: auto;
 }
 
+.page-top {
+  background: #fff;
+  width: 80%;
+  padding: 3rem;
+  margin: 1rem auto;
+  border-radius: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  height: auto;
+}
+
+
 .container {
     background-color: #5f9ea0;
     color: White;
@@ -70,3 +82,28 @@ body {
   .cv div h2 {
     font-style: italic;
   }
+
+  .forecast {
+    margin: 0;
+    padding: .3rem;
+    background-color: #eee;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+.forecast > h1,
+.day-forecast {
+    margin: .5rem;
+    padding: .3rem;
+    font-size: 1.2rem;
+}
+
+.day-forecast {
+    background: right/contain content-box border-box no-repeat
+        url('') white;
+}
+
+.day-forecast > h2,
+.day-forecast > p {
+    margin: .2rem;
+    font-size: 1rem;
+}
