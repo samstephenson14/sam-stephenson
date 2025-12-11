@@ -60,6 +60,20 @@
             background-clip: text;
             position: relative;
             z-index: 1;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.05);
+        }
+
+        header h1 a {
+            text-decoration: none;
+            background: linear-gradient(135deg, #9d7bd8 0%, #20b2aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         header .title {
@@ -426,7 +440,7 @@
 </head>
 <body>
     <header>
-        <h1>Samuel Stephenson</h1>
+        <h1><a href="index.html">Samuel Stephenson</a></h1>
         <p class="title">Project Manager | AI & RPA Implementation | Risk Operations</p>
         <p class="specialties">Project Management • AI & RPA Implementation • Risk & Fraud Operations • Cross-Functional Communications • Data Analysis • Change Management</p>
     </header>
