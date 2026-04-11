@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Samuel Stephenson</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0a0f1e;
+            background-image: 
+                radial-gradient(at 20% 30%, rgba(157, 123, 216, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 70%, rgba(32, 178, 170, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding-top: 70px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(157, 123, 216, 0.3);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #9d7bd8;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1em;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #9d7bd8;
+            background: rgba(157, 123, 216, 0.1);
+        }
+
+        .nav-links a.active {
+            color: #20b2aa;
+            background: rgba(32, 178, 170, 0.15);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 16px;
+            right: 16px;
+            height: 2px;
+            background: linear-gradient(90deg, #9d7bd8, #20b2aa);
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #d1d5db;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(17, 24, 39, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                border-bottom: 1px solid rgba(157, 123, 216, 0.3);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                pointer-events: none;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 15px 30px;
+                border-radius: 0;
+            }
+        }
+
+        /* Page Content Styles */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .page-header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #9d7bd8 0%, #20b2aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: 1.2em;
+            color: #9ca3af;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .blog-posts {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .blog-post {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(157, 123, 216, 0.3);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 48px rgba(157, 123, 216, 0.3);
+            border-color: rgba(157, 123, 216, 0.5);
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .post-date {
+            color: #9ca3af;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .post-category {
+            background: rgba(157, 123, 216, 0.2);
+            color: #9d7bd8;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+            border: 1px solid rgba(157, 123, 216, 0.3);
+        }
+
+        .post-title {
+            color: #ffffff;
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .post-excerpt {
+            color: #d1d5db;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .post-content {
+            color: #d1d5db;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .post-content h3 {
+            color: #9d7bd8;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .post-content p {
+            margin-bottom: 15px;
+        }
+
+        .post-content ul, .post-content ol {
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+
+        .post-content li {
+            margin-bottom: 8px;
+        }
+
+        .post-content strong {
+            color: #20b2aa;
+        }
+
+        .read-time {
+            color: #9ca3af;
+            font-size: 0.9em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #9ca3af;
+            font-size: 1em;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2em;
+            }
+
+            .blog-post {
+                padding: 30px 25px;
+            }
+
+            .post-title {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">🏠</a>
+            
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-home">Home</a></li>
+                <li><a href="cv.html" class="nav-cv">Resume</a></li>
+                <li><a href="projects.html" class="nav-projects">Projects</a></li>
+                <li><a href="blog.html" class="nav-blog active">Blog</a></li>
+                <li><a href="resources.html" class="nav-resources">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Insights & Perspectives</h1>
+            <p>Thoughts on AI implementation, chargeback management, fraud prevention, and building efficient operations.</p>
+        </div>
+
+        <div class="blog-posts">
+
+            <!-- BLOG POST 1 -->
+            <article class="blog-post">
+                <div class="post-meta">
+                    <span class="post-date">📅 January 15, 2025</span>
+                    <span class="post-category">AI & Automation</span>
+                    <span class="read-time">5 min read</span>
+                </div>
+                <h2 class="post-title">How AI Transformed Our Chargeback Win Rate (And Saved Us Millions)</h2>
+                <div class="post-excerpt">
+                    When we integrated AI into our chargeback processes at Super.com, I didn't expect to see a 20% increase in win rates within the first quarter. Here's what worked, what didn't, and the lessons I learned about implementing AI in risk operations.
+                </div>
+                <div class="post-content">
+                    <h3>The Challenge</h3>
+                    <p>
+                        Processing thousands of chargebacks manually was unsustainable. Our team was spending 6+ hours per analyst per day just gathering evidence, crafting responses, and submitting disputes. The work was repetitive, error-prone, and frankly, burning people out.
+                    </p>
+
+                    <h3>The Solution</h3>
+                    <p>
+                        We implemented a two-phase AI approach:
+                    </p>
+                    <ul>
+                        <li><strong>Evidence Automation:</strong> AI pulled relevant transaction data, communication logs, and booking details automatically</li>
+                        <li><strong>Response Generation:</strong> Machine learning models analyzed winning disputes to craft optimized responses</li>
+                        <li><strong>Smart Routing:</strong> Cases were prioritized based on win probability and revenue impact</li>
+                    </ul>
+
+                    <h3>The Results</h3>
+                    <p>
+                        The impact was immediate and measurable. Within three months, we saw automated dispute win rates increase by 20%, and analyst workload decreased by 6 hours per day per person. More importantly, we recovered over $5M in revenue that year while scaling from 4,500 to 66,000 annual disputes.
+                    </p>
+
+                    <h3>Key Takeaways</h3>
+                    <p>
+                        <strong>Start with the repetitive tasks.</strong> Don't try to automate everything at once. Focus on the most time-consuming, rule-based processes first. For us, that was evidence gathering.
+                    </p>
+                    <p>
+                        <strong>Human oversight is crucial.</strong> AI makes mistakes. We kept humans in the loop for high-value disputes and quality checks. This hybrid approach gave us the best of both worlds.
+                    </p>
+                    <p>
+                        <strong>Measure everything.</strong> Track win rates, processing times, and revenue recovery before and after implementation. This data becomes your roadmap for continuous improvement.
+                    </p>
+                </div>
+            </article>
+
+            <!-- BLOG POST 2 -->
+            <article class="blog-post">
+                <div class="post-meta">
+                    <span class="post-date">📅 December 10, 2024</span>
+                    <span class="post-category">Fraud Prevention</span>
+                    <span class="read-time">4 min read</span>
+                </div>
+                <h2 class="post-title">Pattern Recognition: How We Caught a $200K Fraud Ring</h2>
+                <div class="post-excerpt">
+                    Sometimes the best fraud detection isn't about fancy algorithms—it's about knowing what normal looks like and spotting when something's off.
+                </div>
+                <div class="post-content">
+                    <h3>The Discovery</h3>
+                    <p>
+                        It started with a hunch. We noticed an unusual spike in chargebacks from Southeast Asia, all following a similar pattern: new accounts, high-value bookings, and disputes filed within 24 hours of travel.
+                    </p>
+
+                    <h3>The Investigation</h3>
+                    <p>
+                        Using BigQuery and SQL, I pulled transaction data across six months. The pattern became clear: coordinated accounts, similar booking behavior, and a network of shared payment methods and IP addresses.
+                    </p>
+
+                    <h3>The Impact</h3>
+                    <p>
+                        We built automated detection rules that flagged similar behavior in real-time, preventing over $200,000 in attempted fraud. More importantly, we shared these patterns with our fraud prevention team to strengthen platform-wide defenses.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+        <!--
+        ==========================================
+        HOW TO ADD A NEW BLOG POST:
+        ==========================================
+        
+        1. Copy the entire block below (from <!-- NEW BLOG POST to the closing </article>)
+        2. Paste it at the TOP of the <div class="blog-posts"> section (so newest posts appear first)
+        3. Update the content:
+           - Change the date
+           - Pick a category (AI & Automation, Fraud Prevention, Chargebacks, Project Management, etc.)
+           - Update read time (roughly 200 words per minute)
+           - Write your title
+           - Write your excerpt (2-3 sentences)
+           - Write your content using <h3> for sections and <p> for paragraphs
+           - Use <strong> to highlight important points
+           - Use <ul><li> for bullet lists
+        
+        4. Save and upload to GitHub
+        
+        TEMPLATE:
+        -->
+
+        <!-- NEW BLOG POST TEMPLATE - COPY FROM HERE
+        <article class="blog-post">
+            <div class="post-meta">
+                <span class="post-date">📅 Month Day, Year</span>
+                <span class="post-category">Category Name</span>
+                <span class="read-time">X min read</span>
+            </div>
+            <h2 class="post-title">Your Compelling Blog Post Title</h2>
+            <div class="post-excerpt">
+                A brief 2-3 sentence summary that hooks the reader and tells them what they'll learn.
+            </div>
+            <div class="post-content">
+                <h3>First Section Heading</h3>
+                <p>
+                    Your first paragraph goes here. Keep it conversational and engaging.
+                </p>
+
+                <h3>Second Section Heading</h3>
+                <p>
+                    Another paragraph. You can use <strong>bold text</strong> to emphasize key points.
+                </p>
+                <ul>
+                    <li>Bullet point one</li>
+                    <li>Bullet point two</li>
+                    <li>Bullet point three</li>
+                </ul>
+
+                <h3>Conclusion or Key Takeaways</h3>
+                <p>
+                    Wrap up with your main points or actionable advice.
+                </p>
+            </div>
+        </article>
+        COPY TO HERE -->
+
+    </div>
+
+    <footer>
+        <p>© 2024 Samuel Stephenson · Built with integrity and purpose</p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
