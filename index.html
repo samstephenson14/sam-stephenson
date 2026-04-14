@@ -217,7 +217,7 @@
 
     .nav-links {
         display: flex;
-        gap: 30px;
+        gap: 25px;
         list-style: none;
         align-items: center;
     }
@@ -254,7 +254,21 @@
         border-radius: 2px;
     }
 
-    /* Mobile Menu Toggle */
+    /* CTA Button Style */
+    .nav-cta {
+        background: linear-gradient(135deg, #9d7bd8, #20b2aa) !important;
+        color: white !important;
+        padding: 10px 20px !important;
+        border-radius: 50px !important;
+        box-shadow: 0 4px 15px rgba(157, 123, 216, 0.4);
+    }
+
+    .nav-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(157, 123, 216, 0.6) !important;
+        background: linear-gradient(135deg, #9d7bd8, #20b2aa) !important;
+    }
+
     .mobile-menu-toggle {
         display: none;
         background: none;
@@ -265,8 +279,7 @@
         padding: 5px;
     }
 
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .mobile-menu-toggle {
             display: block;
         }
@@ -299,14 +312,71 @@
             padding: 15px 30px;
             border-radius: 0;
         }
-    }
 
-    /* Add padding to body to account for fixed nav */
-    body {
-        padding-top: 70px;
+        .nav-cta {
+            margin: 10px 20px;
+            border-radius: 8px !important;
+        }
     }
 </style>
 
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">🏠</a>
+        
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="nav-home">Home</a></li>
+            <li><a href="cv.html" class="nav-cv">Resume</a></li>
+            <li><a href="projects.html" class="nav-projects">Projects</a></li>
+            <li><a href="blog.html" class="nav-blog">Blog</a></li>
+            <li><a href="resources.html" class="nav-resources">Resources</a></li>
+            <li><a href="services.html" class="nav-services">Services</a></li>
+            <li><a href="contact.html" class="nav-contact nav-cta">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
+    }
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('navLinks').classList.remove('active');
+        });
+    });
+
+    // Highlight current page in navigation
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Remove active class from all links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Add active class to current page
+    if (currentPage === 'index.html' || currentPage === '') {
+        document.querySelector('.nav-home')?.classList.add('active');
+    } else if (currentPage === 'cv.html') {
+        document.querySelector('.nav-cv')?.classList.add('active');
+    } else if (currentPage === 'projects.html') {
+        document.querySelector('.nav-projects')?.classList.add('active');
+    } else if (currentPage === 'blog.html') {
+        document.querySelector('.nav-blog')?.classList.add('active');
+    } else if (currentPage === 'resources.html') {
+        document.querySelector('.nav-resources')?.classList.add('active');
+    } else if (currentPage === 'services.html') {
+        document.querySelector('.nav-services')?.classList.add('active');
+    } else if (currentPage === 'contact.html') {
+        document.querySelector('.nav-contact')?.classList.add('active');
+    }
+</script>
 <nav>
     <div class="nav-container">
         <a href="index.html" class="nav-logo">🏠</a>
