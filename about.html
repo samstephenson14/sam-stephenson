@@ -1,208 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <title>Sam Stephenson</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<header>
-</header>
-<body>
-<style>
-    /* Navigation Styles */
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: rgba(17, 24, 39, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(157, 123, 216, 0.3);
-        padding: 15px 0;
-        z-index: 1000;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .nav-logo {
-        font-size: 1.5em;
-        font-weight: 700;
-        color: #9d7bd8;
-        text-decoration: none;
-        transition: transform 0.3s ease;
-        display: flex;
-        align-items: center;
-    }
-
-    .nav-logo:hover {
-        transform: scale(1.1);
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 30px;
-        list-style: none;
-        align-items: center;
-    }
-
-    .nav-links a {
-        color: #d1d5db;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 1em;
-        padding: 8px 16px;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        position: relative;
-    }
-
-    .nav-links a:hover {
-        color: #9d7bd8;
-        background: rgba(157, 123, 216, 0.1);
-    }
-
-    .nav-links a.active {
-        color: #20b2aa;
-        background: rgba(32, 178, 170, 0.15);
-    }
-
-    .nav-links a.active::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 16px;
-        right: 16px;
-        height: 2px;
-        background: linear-gradient(90deg, #9d7bd8, #20b2aa);
-        border-radius: 2px;
-    }
-
-    /* Mobile Menu Toggle */
-    .mobile-menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        color: #d1d5db;
-        font-size: 1.5em;
-        cursor: pointer;
-        padding: 5px;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-        .mobile-menu-toggle {
-            display: block;
-        }
-
-        .nav-links {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            right: 0;
-            background: rgba(17, 24, 39, 0.98);
-            backdrop-filter: blur(10px);
-            flex-direction: column;
-            gap: 0;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(157, 123, 216, 0.3);
-            transform: translateY(-100%);
-            opacity: 0;
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
-
-        .nav-links.active {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .nav-links a {
-            width: 100%;
-            padding: 15px 30px;
-            border-radius: 0;
-        }
-    }
-
-    /* Add padding to body to account for fixed nav */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Samuel Stephenson</title>
+  <meta name="description" content="About Samuel Stephenson — former US Air Force intelligence analyst turned project manager. Persian, Dari, and French speaker. Based in Montreal, Quebec.">
+  <link rel="canonical" href="https://www.samstephenson.me/about.html">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://www.samstephenson.me/about.html">
+  <meta property="og:title" content="About Samuel Stephenson">
+  <meta property="og:description" content="From flying intelligence missions over Iran to building AI systems that recover millions — a career built on finding signal in noise.">
+  <meta property="og:image" content="https://www.samstephenson.me/images/sam.jpg">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-        padding-top: 70px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6; color: #e0e0e0; background: #0a0f1e;
+      background-image:
+        radial-gradient(at 20% 30%, rgba(157,123,216,0.15) 0px, transparent 50%),
+        radial-gradient(at 80% 70%, rgba(32,178,170,0.15) 0px, transparent 50%);
+      background-attachment: fixed; min-height: 100vh;
     }
-</style>
+    .container { max-width: 860px; margin: 0 auto; padding: 60px 20px 80px; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .section {
+      background: rgba(17,24,39,0.7); backdrop-filter: blur(10px);
+      border-radius: 16px; padding: 40px; margin-bottom: 30px;
+      border: 1px solid rgba(157,123,216,0.3);
+      animation: fadeInUp 0.6s ease-out;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .section:hover { transform: translateY(-3px); box-shadow: 0 12px 48px rgba(157,123,216,0.2); border-color: rgba(157,123,216,0.5); }
+    .hero-section {
+      display: flex; align-items: center; gap: 40px;
+      background: linear-gradient(135deg, rgba(157,123,216,0.15), rgba(32,178,170,0.1));
+    }
+    .hero-image {
+      width: 160px; height: 160px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+      border: 4px solid rgba(157,123,216,0.5); box-shadow: 0 8px 32px rgba(157,123,216,0.3);
+    }
+    .hero-fallback {
+      width: 160px; height: 160px; border-radius: 50%; flex-shrink: 0; display: none;
+      align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #9d7bd8, #20b2aa);
+      font-size: 2.5em; font-weight: 700; color: white;
+      border: 4px solid rgba(157,123,216,0.5);
+    }
+    .hero-text h1 {
+      font-size: 2.8em; font-weight: 700; margin-bottom: 8px;
+      background: linear-gradient(135deg, #9d7bd8, #20b2aa);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-text .tagline { font-size: 1.2em; color: #20b2aa; margin-bottom: 10px; }
+    .hero-text .location { color: #9ca3af; font-size: 0.95em; }
+    h2 {
+      font-size: 1.8em; color: #ffffff; font-weight: 700;
+      margin-bottom: 24px; padding-bottom: 12px; position: relative;
+    }
+    h2::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, #9d7bd8, #20b2aa); border-radius: 2px;
+    }
+    p { color: #d1d5db; font-size: 1.05em; line-height: 1.9; margin-bottom: 16px; }
+    p:last-of-type { margin-bottom: 0; }
+    strong { color: #20b2aa; font-weight: 600; }
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, #9d7bd8, #20b2aa);
+      border-radius: 1px;
+    }
+    .timeline-item { position: relative; margin-bottom: 28px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -24px; top: 6px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #9d7bd8; border: 2px solid #0a0f1e;
+      box-shadow: 0 0 8px rgba(157,123,216,0.6);
+    }
+    .timeline-year { color: #9d7bd8; font-size: 0.85em; font-weight: 600; margin-bottom: 4px; }
+    .timeline-title { color: #ffffff; font-size: 1.05em; font-weight: 600; margin-bottom: 4px; }
+    .timeline-body { color: #9ca3af; font-size: 0.95em; line-height: 1.6; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+    .skill-card {
+      background: rgba(157,123,216,0.1); border-radius: 12px;
+      padding: 18px; border: 1px solid rgba(157,123,216,0.2);
+      transition: all 0.3s;
+    }
+    .skill-card:hover { background: rgba(157,123,216,0.18); border-color: rgba(157,123,216,0.4); }
+    .skill-card h3 { color: #9d7bd8; font-size: 0.9em; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .skill-card p { color: #d1d5db; font-size: 0.9em; line-height: 1.6; margin: 0; }
+    .lang-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+    .lang-badge {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(32,178,170,0.12); border: 1px solid rgba(32,178,170,0.3);
+      border-radius: 10px; padding: 10px 16px;
+    }
+    .lang-flag { font-size: 1.5em; }
+    .lang-info .lang-name { color: #ffffff; font-weight: 600; font-size: 0.95em; }
+    .lang-info .lang-level { color: #9ca3af; font-size: 0.8em; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .value-card {
+      background: linear-gradient(135deg, rgba(157,123,216,0.08), rgba(32,178,170,0.08));
+      border-radius: 12px; padding: 20px; text-align: center;
+      border: 1px solid rgba(157,123,216,0.2);
+    }
+    .value-icon { font-size: 2em; margin-bottom: 10px; }
+    .value-title { color: #ffffff; font-weight: 600; margin-bottom: 6px; }
+    .value-desc { color: #9ca3af; font-size: 0.9em; line-height: 1.5; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+    .cta-links a {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: white; text-decoration: none; font-weight: 600;
+      padding: 12px 26px; border-radius: 50px;
+      background: linear-gradient(135deg, #9d7bd8, #20b2aa);
+      box-shadow: 0 4px 15px rgba(157,123,216,0.4);
+      transition: all 0.3s;
+    }
+    .cta-links a:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(157,123,216,0.7); }
+    footer { text-align: center; padding: 30px 20px; color: #9ca3af; font-size: 0.9em; }
+    @media(max-width:640px) {
+      .hero-section { flex-direction: column; text-align: center; }
+      .hero-text h1 { font-size: 2em; }
+    }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
 
-<nav>
-    <div class="nav-container">
-        <a href="index.html" class="nav-logo">🏠</a>
-        
-        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
-        
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="nav-home">Home</a></li>
-            <li><a href="cv.html" class="nav-cv">Resume</a></li>
-            <li><a href="projects.html" class="nav-projects">Projects</a></li>
-            <li><a href="blog.html" class="nav-blog">Blog</a></li>
-            <li><a href="resources.html" class="nav-resources">Resources</a></li>
-        </ul>
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="section hero-section">
+      <img
+        src="images/sam.jpg" alt="Samuel Stephenson"
+        class="hero-image"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      >
+      <div class="hero-fallback" aria-hidden="true">SS</div>
+      <div class="hero-text">
+        <h1>Samuel Stephenson</h1>
+        <p class="tagline">Project Manager · AI & Operations Specialist</p>
+        <p class="location">📍 Montreal, Quebec · 🇺🇸 Originally from Michigan</p>
+      </div>
     </div>
-</nav>
 
-<script>
-    // Mobile menu toggle
-    function toggleMobileMenu() {
-        const navLinks = document.getElementById('navLinks');
-        navLinks.classList.toggle('active');
-    }
+    <!-- Story -->
+    <div class="section">
+      <h2>My Story</h2>
+      <p>
+        From tracking Iranian military communications 30,000 feet above ground to building AI systems
+        that recover millions in lost revenue — my career has always been about one thing:
+        <strong>finding signal in noise and turning it into action</strong>.
+      </p>
+      <p>
+        I spent six years in the US Air Force as an airborne intelligence analyst, flying combat missions
+        and producing reports that reached national-level policymakers. The work demanded precision,
+        speed, and the ability to synthesise complex, ambiguous information under pressure.
+        It also gave me a deep respect for process — and for what happens when processes break down.
+      </p>
+      <p>
+        After the military, I transitioned into the tech sector and quickly found my footing in risk
+        operations. At Hopper, I realised that the same analytical instincts I'd used to identify
+        military patterns applied perfectly to fraud detection — I helped uncover a coordinated fraud
+        ring and prevented over $200K in losses. At Super.com, I've taken that foundation and scaled
+        it dramatically, growing our dispute operations from 4,500 to over 66,000 annual chargebacks
+        while recovering <strong>$6.8M+ in revenue in 2025 alone</strong>.
+      </p>
+      <p>
+        Today I lead a team of analysts and manage complex cross-functional projects — from AI and
+        RPA tool rollouts to OKR-driven initiatives — all while staying close to the data and the
+        operational realities that make or break results. I live in Montreal with its mix of
+        French and English, and I genuinely love the problem-solving culture of the city.
+      </p>
+    </div>
 
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            document.getElementById('navLinks').classList.remove('active');
-        });
-    });
-
-    // Highlight current page in navigation
-    // This script automatically detects which page you're on and highlights it
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
-    // Remove active class from all links
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.classList.remove('active');
-    });
-    
-    // Add active class to current page
-    if (currentPage === 'index.html' || currentPage === '') {
-        document.querySelector('.nav-home')?.classList.add('active');
-    } else if (currentPage === 'cv.html') {
-        document.querySelector('.nav-cv')?.classList.add('active');
-    } else if (currentPage === 'projects.html') {
-        document.querySelector('.nav-projects')?.classList.add('active');
-    } else if (currentPage === 'blog.html') {
-        document.querySelector('.nav-blog')?.classList.add('active');
-    } else if (currentPage === 'resources.html') {
-        document.querySelector('.nav-resources')?.classList.add('active');
-    }
-</script>
-    <nav class="container">
-        <div class="left"><a href="./index.html">Sam Stephenson</a></div>
-        <div class="right"> 
-          <ul class="socials">
-            <li><a href="./about.html">About</a></li>
-            <li class="sm"><a href="./cv.html">Sam's Resume</a></li>
-          </ul>
+    <!-- Career timeline -->
+    <div class="section">
+      <h2>Career Timeline</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2022 – Present</div>
+          <div class="timeline-title">Project Manager · Super.com (Remote)</div>
+          <div class="timeline-body">AI & RPA implementation, chargeback operations lead, team management. $7M+ in combined savings and revenue recovery.</div>
         </div>
-    </nav>
-    <div> 
+        <div class="timeline-item">
+          <div class="timeline-year">2021</div>
+          <div class="timeline-title">Google Data Analytics & Project Management Certifications</div>
+          <div class="timeline-body">Formalised data skills with Google's professional certificate programs. Added McGill's Data Analytics for Business certificate.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2019 – 2022</div>
+          <div class="timeline-title">Chargeback Analyst & Support Agent · Hopper (Remote)</div>
+          <div class="timeline-body">Grew win rate from 38% to 51%. Helped identify and neutralise a $200K+ fraud ring. Built self-service analytics tools for CS team.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2018</div>
+          <div class="timeline-title">M.S. Political Science · University of Nebraska Omaha</div>
+          <div class="timeline-body">Graduated while on active duty. Focus on international relations and security studies.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2012 – 2018</div>
+          <div class="timeline-title">Intelligence Analyst (Iran) · United States Air Force</div>
+          <div class="timeline-body">Airborne cryptologic language analyst flying RC-135 missions. 30+ combat missions. TS/SCI clearance. NCOIC of deployment operations.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2012</div>
+          <div class="timeline-title">B.A. International Relations · Grand Valley State University</div>
+          <div class="timeline-body">Foundation in geopolitics, languages, and systems thinking that still informs how I approach operations problems today.</div>
+        </div>
+      </div>
     </div>
+
+    <!-- Languages -->
+    <div class="section">
+      <h2>Languages</h2>
+      <div class="lang-grid">
+        <div class="lang-badge">
+          <span class="lang-flag">🇺🇸</span>
+          <div class="lang-info">
+            <div class="lang-name">English</div>
+            <div class="lang-level">Native</div>
+          </div>
+        </div>
+        <div class="lang-badge">
+          <span class="lang-flag">🇮🇷</span>
+          <div class="lang-info">
+            <div class="lang-name">Persian Farsi</div>
+            <div class="lang-level">Professional working proficiency</div>
+          </div>
+        </div>
+        <div class="lang-badge">
+          <span class="lang-flag">🇦🇫</span>
+          <div class="lang-info">
+            <div class="lang-name">Afghan Dari</div>
+            <div class="lang-level">Professional working proficiency</div>
+          </div>
+        </div>
+        <div class="lang-badge">
+          <span class="lang-flag">🇫🇷</span>
+          <div class="lang-info">
+            <div class="lang-name">French</div>
+            <div class="lang-level">Intermediate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What I bring -->
+    <div class="section">
+      <h2>What I Bring to Every Project</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>🎯 Precision</h3>
+          <p>Six years of military intelligence work built an obsession with accuracy. I don't guess — I verify.</p>
+        </div>
+        <div class="skill-card">
+          <h3>📊 Data Fluency</h3>
+          <p>Comfortable in BigQuery, SQL, and Google Sheets. I build dashboards and tools that make data accessible to everyone on the team.</p>
+        </div>
+        <div class="skill-card">
+          <h3>🤖 AI & Automation</h3>
+          <p>Hands-on experience implementing Luminai, Automat, and AI-assisted dispute workflows at scale. I've seen what works and what doesn't.</p>
+        </div>
+        <div class="skill-card">
+          <h3>🗣️ Communication</h3>
+          <p>Four languages and a career bridging military, government, and startup environments means I can translate across teams fluently.</p>
+        </div>
+        <div class="skill-card">
+          <h3>⚡ Speed to Value</h3>
+          <p>Startup experience means I bias toward shipping. I build MVPs, measure them, and iterate — not the other way around.</p>
+        </div>
+        <div class="skill-card">
+          <h3>📐 Structure</h3>
+          <p>I bring Agile discipline to projects without the overhead. Clear OKRs, documented processes, and weekly momentum.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div class="section">
+      <h2>Core Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🎖️</div>
+          <div class="value-title">Integrity first</div>
+          <div class="value-desc">Shaped by military service. I say what I mean, own my mistakes, and don't cut corners.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🔬</div>
+          <div class="value-title">Evidence over opinion</div>
+          <div class="value-desc">Every decision I advocate for is backed by data. If I don't have the data yet, I go get it.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🚀</div>
+          <div class="value-title">Impact over activity</div>
+          <div class="value-desc">Busy ≠ productive. I focus relentlessly on the work that actually moves the needle.</div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <div class="value-title">Teams win together</div>
+          <div class="value-desc">The best outcomes come from empowered, informed teammates. I build systems that scale beyond me.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="section" style="text-align:center;">
+      <h2>Let's Connect</h2>
+      <p style="margin-bottom:24px;">Whether you're looking to collaborate, hire, or just geek out about chargeback operations and AI — I'd love to hear from you.</p>
+      <div class="cta-links" style="justify-content:center;">
+        <a href="contact.html">📧 Get in Touch</a>
+        <a href="cv.html" style="background:transparent;color:#9d7bd8;border:1px solid rgba(157,123,216,0.5);box-shadow:none;">📄 View Resume</a>
+        <a href="https://www.linkedin.com/in/sam-stephenson-67ab7b9" target="_blank" rel="noopener" style="background:transparent;color:#9d7bd8;border:1px solid rgba(157,123,216,0.5);box-shadow:none;">💼 LinkedIn</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© <span class="footer-year"></span> Samuel Stephenson · Built with integrity and purpose</p>
+  </footer>
 </body>
 </html>

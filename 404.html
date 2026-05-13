@@ -1,332 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | Samuel Stephenson</title>
-    <meta name="robots" content="noindex, nofollow">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #e0e0e0;
-            background: #0a0f1e;
-            background-image: 
-                radial-gradient(at 20% 30%, rgba(157, 123, 216, 0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 70%, rgba(32, 178, 170, 0.15) 0px, transparent 50%);
-            background-attachment: fixed;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .error-container {
-            max-width: 700px;
-            text-align: center;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .error-code {
-            font-size: 10em;
-            font-weight: 900;
-            background: linear-gradient(135deg, #9d7bd8 0%, #20b2aa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            line-height: 1;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.7;
-            }
-        }
-
-        .error-emoji {
-            font-size: 5em;
-            margin-bottom: 30px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        h1 {
-            color: #ffffff;
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .error-message {
-            color: #9ca3af;
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .helpful-links {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 35px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(157, 123, 216, 0.3);
-        }
-
-        .helpful-links h2 {
-            color: #9d7bd8;
-            font-size: 1.3em;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-
-        .link-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .quick-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            padding: 20px 15px;
-            background: rgba(157, 123, 216, 0.1);
-            border-radius: 12px;
-            text-decoration: none;
-            color: #d1d5db;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(157, 123, 216, 0.2);
-        }
-
-        .quick-link:hover {
-            background: rgba(157, 123, 216, 0.2);
-            border-color: rgba(157, 123, 216, 0.4);
-            transform: translateY(-3px);
-        }
-
-        .quick-link-icon {
-            font-size: 2em;
-        }
-
-        .quick-link-text {
-            font-weight: 500;
-            font-size: 0.95em;
-        }
-
-        .home-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: 600;
-            padding: 18px 45px;
-            background: linear-gradient(135deg, #9d7bd8, #20b2aa);
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(157, 123, 216, 0.5);
-            border: 1px solid rgba(157, 123, 216, 0.4);
-        }
-
-        .home-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(157, 123, 216, 0.7);
-        }
-
-        .search-box {
-            margin-top: 30px;
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(17, 24, 39, 0.6);
-            border: 1px solid rgba(157, 123, 216, 0.3);
-            border-radius: 50px;
-            color: #e0e0e0;
-            font-size: 1em;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: #9d7bd8;
-            box-shadow: 0 0 0 3px rgba(157, 123, 216, 0.2);
-        }
-
-        .search-box input::placeholder {
-            color: #9ca3af;
-        }
-
-        footer {
-            margin-top: 40px;
-            color: #6b7280;
-            font-size: 0.9em;
-        }
-
-        footer a {
-            color: #9d7bd8;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #20b2aa;
-        }
-
-        @media (max-width: 768px) {
-            .error-code {
-                font-size: 6em;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            .error-message {
-                font-size: 1.1em;
-            }
-
-            .helpful-links {
-                padding: 25px 20px;
-            }
-
-            .link-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Samuel Stephenson</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6; color: #e0e0e0; background: #0a0f1e;
+      background-image:
+        radial-gradient(at 20% 30%, rgba(157,123,216,0.15) 0px, transparent 50%),
+        radial-gradient(at 80% 70%, rgba(32,178,170,0.15) 0px, transparent 50%);
+      background-attachment: fixed; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center; padding: 90px 20px 40px;
+    }
+    .error-container { max-width: 700px; text-align: center; animation: fadeInUp 0.8s ease-out; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .error-emoji { font-size: 4.5em; margin-bottom: 20px; animation: float 3s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
+    .error-code {
+      font-size: 9em; font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, #9d7bd8 0%, #20b2aa 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 18px; animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+    h1 { color: #fff; font-size: 2.3em; margin-bottom: 12px; font-weight: 700; }
+    .error-message { color: #9ca3af; font-size: 1.1em; margin-bottom: 36px; line-height: 1.8; }
+    .helpful-links {
+      background: rgba(17,24,39,0.7); backdrop-filter: blur(10px);
+      border-radius: 16px; padding: 34px;
+      border: 1px solid rgba(157,123,216,0.3); margin-bottom: 28px;
+    }
+    .helpful-links h2 { color: #9d7bd8; font-size: 1.2em; margin-bottom: 22px; font-weight: 600; }
+    .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 22px; }
+    .quick-link {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      padding: 18px 12px; background: rgba(157,123,216,0.1); border-radius: 10px;
+      text-decoration: none; color: #d1d5db; transition: all 0.3s;
+      border: 1px solid rgba(157,123,216,0.2);
+    }
+    .quick-link:hover { background: rgba(157,123,216,0.2); border-color: rgba(157,123,216,0.4); transform: translateY(-3px); }
+    .quick-link-icon { font-size: 1.8em; }
+    .quick-link-text { font-weight: 500; font-size: 0.9em; }
+    .home-button {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: white; text-decoration: none; font-size: 1.15em; font-weight: 600;
+      padding: 16px 42px; background: linear-gradient(135deg, #9d7bd8, #20b2aa);
+      border-radius: 50px; transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(157,123,216,0.5);
+    }
+    .home-button:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(157,123,216,0.7); }
+    footer { margin-top: 36px; color: #6b7280; font-size: 0.9em; }
+    footer a { color: #9d7bd8; text-decoration: none; }
+    footer a:hover { color: #20b2aa; }
+    @media(max-width:480px) {
+      .error-code { font-size: 6em; }
+      h1 { font-size: 1.7em; }
+      .link-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body>
-    <div class="error-container">
-        <div class="error-emoji">🤔</div>
-        <div class="error-code">404</div>
-        <h1>Page Not Found</h1>
-        <p class="error-message">
-            Looks like this page took an unexpected detour. It might have been moved, deleted, or perhaps it never existed. Let's get you back on track.
-        </p>
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
 
-        <div class="helpful-links">
-            <h2>Where would you like to go?</h2>
-            <div class="link-grid">
-                <a href="index.html" class="quick-link">
-                    <span class="quick-link-icon">🏠</span>
-                    <span class="quick-link-text">Home</span>
-                </a>
-                <a href="cv.html" class="quick-link">
-                    <span class="quick-link-icon">📄</span>
-                    <span class="quick-link-text">Resume</span>
-                </a>
-                <a href="projects.html" class="quick-link">
-                    <span class="quick-link-icon">💼</span>
-                    <span class="quick-link-text">Projects</span>
-                </a>
-                <a href="blog.html" class="quick-link">
-                    <span class="quick-link-icon">✍️</span>
-                    <span class="quick-link-text">Blog</span>
-                </a>
-                <a href="resources.html" class="quick-link">
-                    <span class="quick-link-icon">🎁</span>
-                    <span class="quick-link-text">Resources</span>
-                </a>
-                <a href="contact.html" class="quick-link">
-                    <span class="quick-link-icon">📧</span>
-                    <span class="quick-link-text">Contact</span>
-                </a>
-            </div>
+  <div class="error-container">
+    <div class="error-emoji">🤔</div>
+    <div class="error-code">404</div>
+    <h1>Page Not Found</h1>
+    <p class="error-message">Looks like this page took an unexpected detour. It might have been moved, deleted, or perhaps it never existed. Let's get you back on track.</p>
 
-            <a href="index.html" class="home-button">
-                🏠 Take Me Home
-            </a>
-        </div>
-
-        <footer>
-            <p>If you believe this is an error, please <a href="contact.html">let me know</a>.</p>
-        </footer>
+    <div class="helpful-links">
+      <h2>Where would you like to go?</h2>
+      <div class="link-grid">
+        <a href="index.html"      class="quick-link"><span class="quick-link-icon">🏠</span><span class="quick-link-text">Home</span></a>
+        <a href="cv.html"         class="quick-link"><span class="quick-link-icon">📄</span><span class="quick-link-text">Resume</span></a>
+        <a href="projects.html"   class="quick-link"><span class="quick-link-icon">💼</span><span class="quick-link-text">Projects</span></a>
+        <a href="blog.html"       class="quick-link"><span class="quick-link-icon">✍️</span><span class="quick-link-text">Blog</span></a>
+        <a href="resources.html"  class="quick-link"><span class="quick-link-icon">🎁</span><span class="quick-link-text">Resources</span></a>
+        <a href="contact.html"    class="quick-link"><span class="quick-link-icon">📧</span><span class="quick-link-text">Contact</span></a>
+      </div>
+      <a href="index.html" class="home-button">🏠 Take Me Home</a>
     </div>
 
-    <script>
-        // Log 404 errors for debugging (optional)
-        console.log('404 Error - Page not found:', window.location.href);
-        
-        // Optional: Track 404s with analytics
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'exception', {
-                'description': '404 - ' + window.location.pathname,
-                'fatal': false
-            });
-        }
-    </script>
+    <footer>
+      <p>© <span class="footer-year"></span> Samuel Stephenson · If you believe this is an error, <a href="contact.html">let me know</a>.</p>
+    </footer>
+  </div>
+
+  <script>
+    console.log('404 — Page not found:', window.location.href);
+    if(typeof gtag !== 'undefined'){
+      gtag('event','exception',{'description':'404 - '+window.location.pathname,'fatal':false});
+    }
+  </script>
 </body>
 </html>
-
-<!--
-==========================================
-HOW TO IMPLEMENT THIS 404 PAGE
-==========================================
-
-FOR GITHUB PAGES:
-1. Save this file as "404.html" in your root directory
-2. GitHub Pages automatically serves this for any broken links
-3. That's it! No configuration needed.
-
-FOR OTHER HOSTING:
-- Some hosts require .htaccess configuration
-- Check your hosting provider's documentation
-
-TESTING YOUR 404 PAGE:
-1. After deploying, visit: https://samstephenson.me/this-page-does-not-exist
-2. You should see your custom 404 page
-3. Test all the quick links to make sure they work
-
-CUSTOMIZATION OPTIONS:
-- Change the emoji (🤔, 🔍, 🗺️, 🧭)
-- Adjust the message tone (funny, serious, helpful)
-- Add/remove quick links based on your pages
-- Integrate with analytics to track 404 errors
-
-WHY THIS MATTERS:
-✓ Better user experience than default error pages
-✓ Keeps visitors on your site instead of leaving
-✓ Shows attention to detail and professionalism
-✓ Provides helpful navigation options
-✓ Maintains your brand consistency
-==========================================
--->

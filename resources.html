@@ -1,515 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources - Samuel Stephenson</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Resources — Samuel Stephenson</title>
+  <meta name="description" content="Free chargeback and fraud operations resources: ROI calculator, response templates, implementation guides, and win-rate trackers from a practitioner who's recovered $7M+.">
+  <link rel="canonical" href="https://www.samstephenson.me/resources.html">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.samstephenson.me/resources.html">
+  <meta property="og:title" content="Free Resources — Samuel Stephenson">
+  <meta property="og:description" content="Chargeback ROI calculator, fraud prevention checklists, and implementation guides — free from a practitioner with $7M+ in proven results.">
+  <meta property="og:image" content="https://www.samstephenson.me/images/sam.jpg">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6; color: #e0e0e0; background: #0a0f1e;
+      background-image:
+        radial-gradient(at 20% 30%, rgba(157,123,216,0.15) 0px, transparent 50%),
+        radial-gradient(at 80% 70%, rgba(32,178,170,0.15) 0px, transparent 50%);
+      background-attachment: fixed; min-height: 100vh;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px 80px; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .page-header { text-align: center; margin-bottom: 60px; animation: fadeInUp 0.6s ease-out; }
+    .page-header h1 {
+      font-size: 3em; margin-bottom: 14px; font-weight: 700;
+      background: linear-gradient(135deg, #9d7bd8 0%, #20b2aa 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .page-header p { font-size: 1.15em; color: #9ca3af; max-width: 680px; margin: 0 auto; }
+    .resource-section { margin-bottom: 56px; }
+    .section-title {
+      color: #9d7bd8; font-size: 1.9em; margin-bottom: 28px; font-weight: 700;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .section-title::before { content: ''; width: 44px; height: 4px; background: linear-gradient(90deg, #9d7bd8, #20b2aa); border-radius: 2px; }
+    .resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
+    .resource-card {
+      background: rgba(17,24,39,0.7); backdrop-filter: blur(10px);
+      border-radius: 16px; padding: 28px;
+      border: 1px solid rgba(157,123,216,0.3);
+      animation: fadeInUp 0.6s ease-out;
+      display: flex; flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .resource-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(157,123,216,0.25); border-color: rgba(157,123,216,0.5); }
+    .resource-card.live { border-color: rgba(32,178,170,0.5); }
+    .resource-icon { font-size: 2.2em; margin-bottom: 12px; }
+    .resource-card h3 { color: #fff; font-size: 1.3em; margin-bottom: 8px; font-weight: 700; }
+    .resource-type {
+      background: rgba(32,178,170,0.2); color: #20b2aa;
+      padding: 3px 11px; border-radius: 15px; font-size: 0.78em; font-weight: 500;
+      border: 1px solid rgba(32,178,170,0.3); display: inline-block; margin-bottom: 12px;
+    }
+    .resource-type.live-badge { background: rgba(32,178,170,0.3); border-color: #20b2aa; }
+    .resource-description { color: #d1d5db; margin-bottom: 18px; line-height: 1.7; flex-grow: 1; font-size: 0.97em; }
+    .resource-link {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      color: white; text-decoration: none; font-size: 0.97em; font-weight: 600;
+      padding: 11px 22px; background: linear-gradient(135deg, #9d7bd8, #20b2aa);
+      border-radius: 8px; transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(157,123,216,0.4); margin-top: auto;
+    }
+    .resource-link:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(157,123,216,0.6); }
+    .coming-soon {
+      background: rgba(157,123,216,0.1); color: #9d7bd8;
+      padding: 11px 22px; border-radius: 8px; text-align: center;
+      font-weight: 600; border: 1px solid rgba(157,123,216,0.3); margin-top: auto;
+      font-size: 0.95em;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #e0e0e0;
-            background: #0a0f1e;
-            background-image: 
-                radial-gradient(at 20% 30%, rgba(157, 123, 216, 0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 70%, rgba(32, 178, 170, 0.15) 0px, transparent 50%);
-            background-attachment: fixed;
-            min-height: 100vh;
-            padding-top: 70px;
-        }
-
-        /* Navigation Styles */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(17, 24, 39, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(157, 123, 216, 0.3);
-            padding: 15px 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #9d7bd8;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-logo:hover {
-            transform: scale(1.1);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #d1d5db;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1em;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #9d7bd8;
-            background: rgba(157, 123, 216, 0.1);
-        }
-
-        .nav-links a.active {
-            color: #20b2aa;
-            background: rgba(32, 178, 170, 0.15);
-        }
-
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 16px;
-            right: 16px;
-            height: 2px;
-            background: linear-gradient(90deg, #9d7bd8, #20b2aa);
-            border-radius: 2px;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #d1d5db;
-            font-size: 1.5em;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background: rgba(17, 24, 39, 0.98);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                gap: 0;
-                padding: 20px 0;
-                border-bottom: 1px solid rgba(157, 123, 216, 0.3);
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.3s ease;
-                pointer-events: none;
-            }
-
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: all;
-            }
-
-            .nav-links a {
-                width: 100%;
-                padding: 15px 30px;
-                border-radius: 0;
-            }
-        }
-
-        /* Page Content Styles */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .page-header h1 {
-            font-size: 3em;
-            margin-bottom: 15px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #9d7bd8 0%, #20b2aa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .page-header p {
-            font-size: 1.2em;
-            color: #9ca3af;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .resource-section {
-            margin-bottom: 60px;
-        }
-
-        .section-title {
-            color: #9d7bd8;
-            font-size: 2em;
-            margin-bottom: 30px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-title::before {
-            content: '';
-            width: 50px;
-            height: 4px;
-            background: linear-gradient(90deg, #9d7bd8, #20b2aa);
-            border-radius: 2px;
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
-        }
-
-        .resource-card {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 30px;
-            border: 1px solid rgba(157, 123, 216, 0.3);
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.6s ease-out;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 48px rgba(157, 123, 216, 0.3);
-            border-color: rgba(157, 123, 216, 0.5);
-        }
-
-        .resource-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-
-        .resource-card h3 {
-            color: #ffffff;
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .resource-type {
-            background: rgba(32, 178, 170, 0.2);
-            color: #20b2aa;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            font-weight: 500;
-            border: 1px solid rgba(32, 178, 170, 0.3);
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-
-        .resource-description {
-            color: #d1d5db;
-            margin-bottom: 20px;
-            line-height: 1.7;
-            flex-grow: 1;
-        }
-
-        .resource-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            color: white;
-            text-decoration: none;
-            font-size: 1em;
-            font-weight: 600;
-            padding: 12px 25px;
-            background: linear-gradient(135deg, #9d7bd8, #20b2aa);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(157, 123, 216, 0.4);
-            border: 1px solid rgba(157, 123, 216, 0.4);
-            margin-top: auto;
-        }
-
-        .resource-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(157, 123, 216, 0.6);
-        }
-
-        .coming-soon {
-            background: rgba(157, 123, 216, 0.1);
-            color: #9d7bd8;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 600;
-            border: 1px solid rgba(157, 123, 216, 0.3);
-            margin-top: auto;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #9ca3af;
-            font-size: 1em;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .page-header h1 {
-                font-size: 2.2em;
-            }
-
-            .resources-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 1.6em;
-            }
-        }
-    </style>
+    /* ── ROI Calculator ── */
+    .calculator {
+      background: rgba(17,24,39,0.85); backdrop-filter: blur(10px);
+      border-radius: 16px; padding: 40px;
+      border: 1px solid rgba(32,178,170,0.5);
+      margin-bottom: 56px; animation: fadeInUp 0.6s ease-out;
+    }
+    .calculator-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+    .calculator-header h2 { font-size: 1.8em; color: #fff; font-weight: 700; }
+    .live-tag {
+      background: rgba(32,178,170,0.3); color: #20b2aa;
+      padding: 4px 12px; border-radius: 20px; font-size: 0.8em;
+      font-weight: 600; border: 1px solid #20b2aa;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .calc-inputs { display: flex; flex-direction: column; gap: 18px; }
+    .input-group label { display: block; color: #d1d5db; font-size: 0.92em; font-weight: 500; margin-bottom: 6px; }
+    .input-group input[type=range] { width: 100%; accent-color: #9d7bd8; cursor: pointer; }
+    .input-group .val-display { color: #9d7bd8; font-weight: 700; font-size: 1.1em; margin-top: 4px; display: block; }
+    .calc-results { background: rgba(32,178,170,0.08); border-radius: 12px; padding: 24px; border: 1px solid rgba(32,178,170,0.25); display: flex; flex-direction: column; gap: 16px; }
+    .result-item { border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 14px; }
+    .result-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .result-label { color: #9ca3af; font-size: 0.88em; margin-bottom: 4px; }
+    .result-value { font-size: 1.8em; font-weight: 700; color: #20b2aa; line-height: 1.1; }
+    .result-sub { color: #9ca3af; font-size: 0.8em; margin-top: 3px; }
+    .calc-note { color: #9ca3af; font-size: 0.82em; margin-top: 16px; font-style: italic; }
+    @media(max-width:640px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+    footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 0.9em; }
+    @media(max-width:768px) {
+      .page-header h1 { font-size: 2.2em; }
+      .resources-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 1.5em; }
+      .calculator { padding: 24px 18px; }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">🏠</a>
-            
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
-            
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="nav-home">Home</a></li>
-                <li><a href="cv.html" class="nav-cv">Resume</a></li>
-                <li><a href="projects.html" class="nav-projects">Projects</a></li>
-                <li><a href="blog.html" class="nav-blog">Blog</a></li>
-                <li><a href="resources.html" class="nav-resources active">Resources</a></li>
-            </ul>
-        </div>
-    </nav>
+  <div id="nav-placeholder"></div>
+  <script src="nav.js"></script>
 
-    <div class="container">
-        <div class="page-header">
-            <h1>Free Resources & Tools</h1>
-            <p>Templates, guides, and calculators to help you optimize your chargeback operations and fraud prevention strategies.</p>
-        </div>
-
-        <!-- TEMPLATES SECTION -->
-        <section class="resource-section">
-            <h2 class="section-title">Templates & Documents</h2>
-            <div class="resources-grid">
-
-                <div class="resource-card">
-                    <div class="resource-icon">📄</div>
-                    <span class="resource-type">Template</span>
-                    <h3>Chargeback Response Template</h3>
-                    <p class="resource-description">
-                        A comprehensive template for crafting effective chargeback dispute responses. Includes sections for evidence organization, compelling narratives, and compliance requirements.
-                    </p>
-                    <div class="coming-soon">Coming Soon</div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="resource-icon">📊</div>
-                    <span class="resource-type">Template</span>
-                    <h3>RPA Implementation Roadmap</h3>
-                    <p class="resource-description">
-                        Step-by-step framework for planning and executing robotic process automation projects in risk operations. Based on real implementations at scale.
-                    </p>
-                    <div class="coming-soon">Coming Soon</div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="resource-icon">📋</div>
-                    <span class="resource-type">Template</span>
-                    <h3>Fraud Prevention Checklist</h3>
-                    <p class="resource-description">
-                        Essential checks and patterns to watch for when building fraud detection systems. Covers account takeover, payment fraud, and friendly fraud indicators.
-                    </p>
-                    <div class="coming-soon">Coming Soon</div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- GUIDES SECTION -->
-        <section class="resource-section">
-            <h2 class="section-title">Guides & How-Tos</h2>
-            <div class="resources-grid">
-
-                <div class="resource-card">
-                    <div class="resource-icon">📖</div>
-                    <span class="resource-type">Guide</span>
-                    <h3>Chargeback Win Rate Optimization</h3>
-                    <p class="resource-description">
-                        Learn the strategies that increased our win rate from 38% to 68%. Evidence gathering, response timing, and compelling narrative techniques.
-                    </p>
-                    <div class="coming-soon">Coming Soon</div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="resource-icon">🤖</div>
-                    <span class="resource-type">Guide</span>
-                    <h3>AI Implementation for Risk Ops</h3>
-                    <p class="resource-description">
-                        A practical guide to integrating AI into chargeback and fraud operations. Covers tool selection, implementation phases, and measuring ROI.
-                    </p>
-                    <div class="coming-soon">Coming Soon</div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="resource-icon">🎯</div>
-                    <span class="resource-type">Guide</span>
-                    <h3>Building Self-Service Analytics</h3>
-                    <p class="resource-description">
-                        How to create internal tools that empower your team with data access. Reduce bottlenecks and improve response times using BigQuery and SQL.
-                    </p>
-                    <div class="coming-soon">Coming Soon</div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- TOOLS & CALCULATORS SECTION -->
-        <section class="resource-section">
-            <h2 class="section-title">Tools & Calculators</h2>
-            <div class="resources-grid">
-
-                <div class="resource-card">
-                    <div class="resource-icon">🧮</div>
-                    <span class="resource-type">Calculator</span>
-                    <h3>Chargeback ROI Calculator</h3>
-                    <p class="resource-description">
-                        Calculate the potential revenue recovery and cost savings from improving your chargeback win rate. Input your current metrics to see the impact.
-                    </p>
-                    <div class="coming-soon">Coming Soon</div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="resource-icon">⚡</div>
-                    <span class="resource-type">Calculator</span>
-                    <h3>Automation Savings Estimator</h3>
-                    <p class="resource-description">
-                        Estimate time and cost savings from automating repetitive tasks in your operations. Compare manual vs. automated workflows.
-                    </p>
-                    <div class="coming-soon">Coming Soon</div>
-                </div>
-
-                <div class="resource-card">
-                    <div class="resource-icon">📈</div>
-                    <span class="resource-type">Tool</span>
-                    <h3>Win Rate Tracker</h3>
-                    <p class="resource-description">
-                        Simple spreadsheet template to track your chargeback win rates over time. Identify trends, measure improvements, and report on performance.
-                    </p>
-                    <div class="coming-soon">Coming Soon</div>
-                </div>
-
-            </div>
-        </section>
-
-        <!--
-        ==========================================
-        HOW TO ADD A NEW RESOURCE:
-        ==========================================
-        
-        1. Decide which section: Templates, Guides, or Tools
-        2. Copy the resource card template below
-        3. Paste it into the appropriate <div class="resources-grid"> section
-        4. Update:
-           - Emoji icon
-           - Resource type (Template, Guide, Calculator, Tool)
-           - Title
-           - Description
-           - Either add a link or keep "Coming Soon"
-        
-        To add a downloadable link:
-        Replace: <div class="coming-soon">Coming Soon</div>
-        With: <a href="path/to/your/file.pdf" class="resource-link" download>📥 Download</a>
-        
-        Or for external links:
-        <a href="https://your-link.com" class="resource-link" target="_blank">🔗 Access Tool</a>
-        
-        TEMPLATE:
-        -->
-
-        <!-- NEW RESOURCE TEMPLATE - COPY FROM HERE
-        <div class="resource-card">
-            <div class="resource-icon">📄</div>
-            <span class="resource-type">Template</span>
-            <h3>Your Resource Title</h3>
-            <p class="resource-description">
-                Brief description of what this resource is and how it helps.
-            </p>
-            <div class="coming-soon">Coming Soon</div>
-        </div>
-        COPY TO HERE -->
-
+  <div class="container">
+    <div class="page-header">
+      <h1>Free Resources & Tools</h1>
+      <p>Templates, guides, and calculators to help you optimise your chargeback operations and fraud prevention strategies — built from real practitioner experience.</p>
     </div>
 
-    <footer>
-        <p>© 2024 Samuel Stephenson · Built with integrity and purpose</p>
-    </footer>
+    <!-- ── LIVE: ROI Calculator ── -->
+    <div class="calculator">
+      <div class="calculator-header">
+        <h2>🧮 Chargeback ROI Calculator</h2>
+        <span class="live-tag">● Live Tool</span>
+      </div>
+      <p style="color:#9ca3af;margin-bottom:24px;font-size:0.95em;">
+        Drag the sliders to match your current operation. The calculator estimates how much additional revenue you could recover by improving your win rate and processing speed.
+      </p>
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="input-group">
+            <label>Monthly chargebacks <span class="val-display" id="disp-vol">500</span></label>
+            <input type="range" id="vol" min="50" max="10000" step="50" value="500">
+          </div>
+          <div class="input-group">
+            <label>Average dispute value <span class="val-display" id="disp-aov">$250</span></label>
+            <input type="range" id="aov" min="25" max="2000" step="25" value="250">
+          </div>
+          <div class="input-group">
+            <label>Current win rate <span class="val-display" id="disp-wr">38%</span></label>
+            <input type="range" id="wr" min="10" max="80" step="1" value="38">
+          </div>
+          <div class="input-group">
+            <label>Target win rate (after optimisation) <span class="val-display" id="disp-twr">58%</span></label>
+            <input type="range" id="twr" min="10" max="80" step="1" value="58">
+          </div>
+          <div class="input-group">
+            <label>Analyst hourly cost (USD) <span class="val-display" id="disp-cost">$35</span></label>
+            <input type="range" id="cost" min="15" max="150" step="5" value="35">
+          </div>
+          <div class="input-group">
+            <label>Hours saved per analyst per day <span class="val-display" id="disp-hrs">3</span></label>
+            <input type="range" id="hrs" min="0.5" max="8" step="0.5" value="3">
+          </div>
+          <div class="input-group">
+            <label>Number of analysts <span class="val-display" id="disp-ana">3</span></label>
+            <input type="range" id="ana" min="1" max="30" step="1" value="3">
+          </div>
+        </div>
+        <div class="calc-results">
+          <div class="result-item">
+            <div class="result-label">Additional monthly revenue recovered</div>
+            <div class="result-value" id="res-monthly">$0</div>
+            <div class="result-sub">From improved win rate alone</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Additional annual revenue recovered</div>
+            <div class="result-value" id="res-annual">$0</div>
+            <div class="result-sub">Win rate improvement × 12 months</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Annual analyst time savings</div>
+            <div class="result-value" id="res-time">$0</div>
+            <div class="result-sub">Labour cost recovered through automation</div>
+          </div>
+          <div class="result-item">
+            <div class="result-label">Total estimated annual impact</div>
+            <div class="result-value" id="res-total" style="color:#9d7bd8;font-size:2.2em;">$0</div>
+            <div class="result-sub">Revenue + labour savings combined</div>
+          </div>
+        </div>
+      </div>
+      <p class="calc-note">* Estimates are illustrative. Actual results depend on dispute types, card network rules, evidence quality, and implementation specifics. Based on patterns observed across 66,000+ disputes processed annually.</p>
+    </div>
 
-    <script>
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
+    <!-- Templates -->
+    <section class="resource-section">
+      <h2 class="section-title">Templates & Documents</h2>
+      <div class="resources-grid">
+        <div class="resource-card">
+          <div class="resource-icon">📄</div>
+          <span class="resource-type">Template</span>
+          <h3>Chargeback Response Template</h3>
+          <p class="resource-description">A comprehensive template for crafting effective chargeback dispute responses. Includes sections for evidence organisation, compelling narratives, and compliance requirements.</p>
+          <div class="coming-soon">Coming Soon</div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">📊</div>
+          <span class="resource-type">Template</span>
+          <h3>RPA Implementation Roadmap</h3>
+          <p class="resource-description">Step-by-step framework for planning and executing robotic process automation projects in risk operations. Based on real implementations at scale.</p>
+          <div class="coming-soon">Coming Soon</div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">📋</div>
+          <span class="resource-type">Template</span>
+          <h3>Fraud Prevention Checklist</h3>
+          <p class="resource-description">Essential checks and patterns to watch for when building fraud detection systems. Covers account takeover, payment fraud, and friendly fraud indicators.</p>
+          <div class="coming-soon">Coming Soon</div>
+        </div>
+      </div>
+    </section>
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-    </script>
+    <!-- Guides -->
+    <section class="resource-section">
+      <h2 class="section-title">Guides & How-Tos</h2>
+      <div class="resources-grid">
+        <div class="resource-card">
+          <div class="resource-icon">📖</div>
+          <span class="resource-type">Guide</span>
+          <h3>Chargeback Win Rate Optimisation</h3>
+          <p class="resource-description">Strategies that increased our win rate from 38% to 68%. Evidence gathering, response timing, and compelling narrative techniques.</p>
+          <div class="coming-soon">Coming Soon</div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">🤖</div>
+          <span class="resource-type">Guide</span>
+          <h3>AI Implementation for Risk Ops</h3>
+          <p class="resource-description">A practical guide to integrating AI into chargeback and fraud operations. Covers tool selection, implementation phases, and measuring ROI.</p>
+          <div class="coming-soon">Coming Soon</div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">🎯</div>
+          <span class="resource-type">Guide</span>
+          <h3>Building Self-Service Analytics</h3>
+          <p class="resource-description">How to create internal tools that empower your team with data access. Reduce bottlenecks and improve response times using BigQuery and SQL.</p>
+          <div class="coming-soon">Coming Soon</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Tools -->
+    <section class="resource-section">
+      <h2 class="section-title">More Tools</h2>
+      <div class="resources-grid">
+        <div class="resource-card">
+          <div class="resource-icon">⚡</div>
+          <span class="resource-type">Calculator</span>
+          <h3>Automation Savings Estimator</h3>
+          <p class="resource-description">Estimate time and cost savings from automating repetitive tasks in your operations. Compare manual vs automated workflows.</p>
+          <div class="coming-soon">Coming Soon</div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">📈</div>
+          <span class="resource-type">Tool</span>
+          <h3>Win Rate Tracker</h3>
+          <p class="resource-description">Spreadsheet template to track chargeback win rates over time. Identify trends, measure improvements, and report on performance.</p>
+          <div class="coming-soon">Coming Soon</div>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">🔍</div>
+          <span class="resource-type">Tool</span>
+          <h3>Fraud Pattern Identifier</h3>
+          <p class="resource-description">A guided framework for spotting coordinated fraud patterns in your transaction data — based on the methodology used to catch a $200K+ fraud ring.</p>
+          <div class="coming-soon">Coming Soon</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>© <span class="footer-year"></span> Samuel Stephenson · Built with integrity and purpose</p>
+  </footer>
+
+  <script>
+    // ROI Calculator
+    var ids = ['vol','aov','wr','twr','cost','hrs','ana'];
+    var fmts = {
+      vol: function(v){ return v.toLocaleString(); },
+      aov: function(v){ return '$'+v; },
+      wr:  function(v){ return v+'%'; },
+      twr: function(v){ return v+'%'; },
+      cost:function(v){ return '$'+v; },
+      hrs: function(v){ return v; },
+      ana: function(v){ return v; }
+    };
+    function fmt$(n){ return '$'+Math.round(n).toLocaleString(); }
+
+    function calc(){
+      var vol  = +document.getElementById('vol').value;
+      var aov  = +document.getElementById('aov').value;
+      var wr   = +document.getElementById('wr').value / 100;
+      var twr  = +document.getElementById('twr').value / 100;
+      var cost = +document.getElementById('cost').value;
+      var hrs  = +document.getElementById('hrs').value;
+      var ana  = +document.getElementById('ana').value;
+
+      if(twr < wr) twr = wr;
+
+      var extraWins    = vol * (twr - wr);
+      var monthly      = extraWins * aov;
+      var annual       = monthly * 12;
+      var timeSavings  = hrs * ana * 250 * cost; // ~250 working days/yr
+
+      document.getElementById('res-monthly').textContent = fmt$(monthly);
+      document.getElementById('res-annual').textContent  = fmt$(annual);
+      document.getElementById('res-time').textContent    = fmt$(timeSavings);
+      document.getElementById('res-total').textContent   = fmt$(annual + timeSavings);
+    }
+
+    ids.forEach(function(id){
+      var el = document.getElementById(id);
+      var disp = document.getElementById('disp-'+id);
+      el.addEventListener('input', function(){
+        disp.textContent = fmts[id](+el.value);
+        calc();
+      });
+    });
+    calc();
+  </script>
 </body>
 </html>
