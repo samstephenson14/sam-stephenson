@@ -910,12 +910,16 @@
       <div class="section-head">
         <div class="eyebrow">§ V — Practice exam</div>
         <h2>The <em>quiz.</em></h2>
-        <div class="sub">Eighty questions across all four domains, weighted to mirror the real exam. Choose a mode.</div>
+        <div class="sub">The real exam is 115 questions over 3 hours, weighted across four domains. Full Exam mirrors that; Challenge drills only the hardest, rule-specific items. Choose a mode.</div>
       </div>
       <div class="quiz-modes">
         <button class="mode" data-mode="full">
           <div class="mode-name">Full Exam</div>
-          <div class="mode-meta">80 questions · ~80 min · weighted</div>
+          <div class="mode-meta">115 questions · ~3 hr · weighted</div>
+        </button>
+        <button class="mode" data-mode="hard">
+          <div class="mode-name">Challenge ⚡</div>
+          <div class="mode-meta">30 questions · hardest only · weighted</div>
         </button>
         <button class="mode" data-mode="quick">
           <div class="mode-name">Quick Drill</div>
@@ -923,19 +927,19 @@
         </button>
         <button class="mode" data-mode="perf">
           <div class="mode-name">Performance Mgmt only</div>
-          <div class="mode-meta">~28 questions · 35% domain</div>
+          <div class="mode-meta">42 questions · 35% weight</div>
         </button>
         <button class="mode" data-mode="op">
           <div class="mode-name">Operational Mgmt only</div>
-          <div class="mode-meta">~24 questions · 30% domain</div>
+          <div class="mode-meta">38 questions · 30% weight</div>
         </button>
         <button class="mode" data-mode="prov">
           <div class="mode-name">Provider Mgmt only</div>
-          <div class="mode-meta">~16 questions · 20% domain</div>
+          <div class="mode-meta">26 questions · 20% weight</div>
         </button>
         <button class="mode" data-mode="feat">
           <div class="mode-name">Features only</div>
-          <div class="mode-meta">~12 questions · 15% domain</div>
+          <div class="mode-meta">19 questions · 15% weight</div>
         </button>
       </div>
       <div id="quizHistory"></div>
@@ -1456,7 +1460,142 @@ const QUESTIONS = [
     answer: 1, explain: "A product roadmap is the PSP's or fraud vendor's planned feature release schedule. It's a key factor in contract negotiation: which features are committed, which are aspirational, and what timelines apply." },
   { domain: "feat", q: "Which best describes the role of UX considerations in fraud-team workflows?",
     options: ["UX is irrelevant to fraud teams; only the customer-facing checkout matters", "Reviewer dashboards, queue prioritization, and decision-support tooling materially affect time-to-review and review accuracy", "UX should never differ from the customer-facing site", "UX only matters if the team uses mobile devices"],
-    answer: 1, explain: "Fraud-team UX directly affects throughput. Good queue prioritization, well-designed reviewer dashboards, and decision-support tooling reduce time-to-review and improve consistency. Bad UX kills review capacity." }
+    answer: 1, explain: "Fraud-team UX directly affects throughput. Good queue prioritization, well-designed reviewer dashboards, and decision-support tooling reduce time-to-review and improve consistency. Bad UX kills review capacity." },
+  { domain: "perf", hard: true, q: "A merchant reports a gross fraud rate of 0.8% but a net fraud rate of 0.5%. What accounts for the 0.3-point gap?",
+    options: ["Chargebacks successfully disputed and reversed (net of fees and operating expenses)", "Transactions declined at authorization", "Refunds issued voluntarily before any dispute was filed", "Pilot transactions excluded from the scored total"],
+    answer: 0, explain: "Gross fraud rate = chargebacks received ÷ settled transactions. Net fraud rate removes the chargebacks the merchant won on representment (after fees and opex). The gap is recovered disputes." },
+  { domain: "perf", hard: true, q: "Per the study guide glossary, the Chargeback Ratio compares the number of chargebacks to:",
+    options: ["the overall number of transactions for a given month", "the dollar value of fraud over the trailing 12 months", "the number of successful representments that month", "the total authorization attempts, including declines"],
+    answer: 0, explain: "Chargeback Ratio = chargebacks ÷ overall transactions for a given month. As chargebacks against a retailer rise, so does the ratio." },
+  { domain: "perf", hard: true, q: "ISO 8583 is best described as the international standard for:",
+    options: ["card-originated financial-transaction interchange messaging", "tokenizing primary account numbers at the network level", "encrypting cardholder data in transit across public networks", "classifying merchants by the goods and services they sell"],
+    answer: 0, explain: "ISO 8583 is the ISO standard for interchange (financial-transaction) messaging between cards, acquirers, and issuers. Built in the 1980s, it predates eCommerce, so it lacks native IP/email fields." },
+  { domain: "perf", hard: true, q: "A fraud team must catch a brand-new attack pattern that has never appeared in their labeled history. Which approach is BEST suited?",
+    options: ["Unsupervised learning that flags clusters and anomalies in unlabeled data", "A supervised classifier retrained on last quarter's confirmed fraud", "A static rules engine tuned to thresholds from past fraud", "An AVS/CVV match check at authorization"],
+    answer: 0, explain: "Supervised models only recognize patterns resembling labeled examples. A never-seen pattern has no labels, so unsupervised anomaly/cluster detection is the right tool." },
+  { domain: "perf", hard: true, q: "An AVS check compares which specific data between the order and the issuer's records?",
+    options: ["The numerical portions of the billing (and shipping) address", "The full cardholder name and billing-address text", "The CVV and the card expiration date", "The device fingerprint and the billing ZIP"],
+    answer: 0, explain: "AVS compares the numerical portions of billing/shipping addresses (street number, ZIP) against the issuer's file — not names or CVV." },
+  { domain: "perf", hard: true, q: "Which statement about the CVV/CVC is correct?",
+    options: ["It is printed on the card, not embossed, and not stored in the magnetic stripe", "It is embossed on the front alongside the PAN", "It is encoded in the magnetic stripe for terminal reading", "It may be stored by the PSP after authorization for refunds"],
+    answer: 0, explain: "The CVV is a 3-to-4-digit value printed (not embossed) on the card and not held in the magstripe. It also cannot be retained by anyone in the chain after authorization." },
+  { domain: "perf", hard: true, q: "Per the study guide glossary, a customer's right to formally contest a charge on their statement was established through:",
+    options: ["The Fair Credit Billing Act of 1975", "The Truth in Lending Act amendments of 2009", "The Electronic Fund Transfer Act of 1978", "The Dodd-Frank Act of 2010"],
+    answer: 0, explain: "The glossary defines a 'Dispute' as established through The Fair Credit Billing Act of 1975 — a customer formally questioning/contesting transactions." },
+  { domain: "perf", hard: true, q: "Which decline is a 'soft decline' a merchant could reasonably retry?",
+    options: ["Insufficient funds", "Stolen card — pick up", "Invalid card number", "Account closed"],
+    answer: 0, explain: "Soft declines are temporary (insufficient funds, issuer unavailable) and may succeed on retry. Hard declines (stolen, invalid, closed) are permanent — retrying them risks fines." },
+  { domain: "perf", hard: true, q: "A merchant's authorization rate falls 4 points overnight with no checkout change. Which is the LEAST likely cause?",
+    options: ["A drop in the merchant's chargeback representment win rate", "An acquirer or issuer outage affecting a card range", "A new BIN range being soft-declined by issuers", "A routing change sending traffic to a worse-performing acquirer"],
+    answer: 0, explain: "Win rate is a post-chargeback representment metric; it has no bearing on whether authorizations approve. Outages, BIN-level declines, and routing changes all directly move auth rate." },
+  { domain: "perf", hard: true, q: "The 'cost of false positives' in a fraud program primarily captures:",
+    options: ["revenue and lifetime value lost when good customers are wrongly declined", "interchange paid on transactions that later charge back", "the per-case fee to represent a chargeback", "network fines levied once a monitoring threshold is breached"],
+    answer: 0, explain: "False positives are good customers blocked by fraud controls. Their cost — lost revenue and customer lifetime value — is easy to overlook and often exceeds fraud losses." },
+  { domain: "perf", hard: true, q: "Which set most completely defines the 'Cost of Fraud' KPI?",
+    options: ["Fraud losses (lost chargebacks + fees) + cost of false positives + prevention spend", "Lost chargebacks only", "Chargeback fees plus interchange on disputed sales", "The dollar value of fraud blocked per month"],
+    answer: 0, explain: "Cost of Fraud is a roll-up: actual losses (lost disputes + fees), the cost of false positives, and prevention investment (staff, tools, data)." },
+  { domain: "perf", hard: true, q: "An Account Updater service improves authorization rates by:",
+    options: ["retrieving refreshed card numbers/expiry from issuers when a stored card changes", "scanning the dark web for compromised cards on file", "issuing a one-time network token for each recurring charge", "reassigning a new MID after a soft decline"],
+    answer: 0, explain: "Account Updater proactively pulls updated card data from issuers so stored-card and recurring payments don't decline merely because a card was reissued." },
+  { domain: "perf", hard: true, q: "Behavioral biometrics analyzes:",
+    options: ["patterns in a user's session behavior to separate humans from bots or bad actors", "fingerprint and facial scans captured at login", "device hardware identifiers and OS version", "the numerical portions of the billing address"],
+    answer: 0, explain: "Behavioral biometrics studies session behavior (typing cadence, navigation, mouse/touch dynamics) versus typical legitimate users — distinct from physiological biometrics or device intelligence." },
+  { domain: "perf", hard: true, q: "Why is synthetic identity fraud particularly hard to catch early?",
+    options: ["There is often no real victim to notice and dispute the activity", "It always uses a fully fabricated SSN with no real elements", "It can only occur on card-present transactions", "Issuers must reimburse it under Regulation E within two days"],
+    answer: 0, explain: "Synthetic identities blend real elements (often a real SSN) with fabricated details. With no genuine victim filing an early dispute, the profile can build credit and operate undetected." },
+  { domain: "op", hard: true, q: "Under Visa's Dispute Monitoring Program (VDMP), a merchant reaches the STANDARD level at:",
+    options: ["a 0.9% dispute ratio with at least 100 disputes", "a 0.65% dispute ratio with at least 75 disputes", "a 1.8% dispute ratio with at least 1,000 disputes", "a 1.0% dispute ratio with at least 100 disputes"],
+    answer: 0, explain: "VDMP Standard = 0.9% dispute ratio AND ≥100 disputes. (0.65%/75 = Early Warning; 1.8%/1,000 = Excessive.) Dispute ratio = disputes ÷ transactions." },
+  { domain: "op", hard: true, q: "A merchant hits Visa's VDMP EXCESSIVE level at which combination?",
+    options: ["1.8% dispute ratio and at least 1,000 disputes", "0.9% dispute ratio and at least 100 disputes", "1.8% dispute ratio and at least 100 disputes", "1.0% dispute ratio and at least 1,000 disputes"],
+    answer: 0, explain: "VDMP Excessive = 1.8% dispute ratio AND ≥1,000 disputes. Both the ratio and the count must be met." },
+  { domain: "op", hard: true, q: "Visa's Fraud Monitoring Program (VFMP) measures a merchant using:",
+    options: ["fraud-coded chargebacks and TC40 data, as a share of transaction value", "all chargebacks regardless of reason code, by count", "the same dispute ratio used by VDMP", "authorization decline rates reported by the acquirer"],
+    answer: 0, explain: "VFMP is based on fraud-coded chargebacks and TC40 fraud-reporting data. Its fraud rate = $ value of fraud ÷ $ value of total transactions — a value ratio, not a count." },
+  { domain: "op", hard: true, q: "VFMP's STANDARD level requires a 0.9% fraud rate and at least:",
+    options: ["US$75,000 in total fraud", "US$50,000 in total fraud", "US$250,000 in total fraud", "US$100,000 in total fraud"],
+    answer: 0, explain: "VFMP Standard = 0.9% fraud rate AND ≥US$75,000 fraud. (Early Warning = 0.65%/$50K; Excessive = 1.8%/$250K.)" },
+  { domain: "op", hard: true, q: "Which is a direct consequence of failing to exit a Visa monitoring program?",
+    options: ["Loss of chargeback representment rights and of the 3DS liability shift", "Automatic conversion of all disputes to arbitration", "A mandated reduction in interchange rates", "Forced migration to a different card network"],
+    answer: 0, explain: "Consequences include fines/fees, loss of representment rights, loss of the 3DS liability shift, remediation-plan requirements, and ultimately loss of processing privileges." },
+  { domain: "op", hard: true, q: "In the U.S., which pairing is correct?",
+    options: ["Reg E (EFTA) governs debit chargebacks; Reg Z (TILA) governs credit chargebacks", "Reg E (TILA) governs credit; Reg Z (EFTA) governs debit", "Reg E governs both debit and credit chargebacks", "Reg Z (Dodd-Frank) governs debit; Reg E governs credit"],
+    answer: 0, explain: "Regulation E implements the Electronic Fund Transfer Act (debit). Regulation Z implements the Truth in Lending Act (credit)." },
+  { domain: "op", hard: true, q: "A chargeback reason code is defined as:",
+    options: ["a two-to-four-digit alphanumeric code identifying the dispute reason", "a single-digit category set globally by the PCI SSC", "a six-digit BIN identifying the issuing bank", "a network token that replaces the PAN"],
+    answer: 0, explain: "Reason codes are 2-to-4-digit alphanumeric codes; each network (Visa, Mastercard, etc.) maintains its own system. They guide representment strategy." },
+  { domain: "op", hard: true, q: "After a chargeback is filed, the merchant's window to respond with representment evidence is:",
+    options: ["set by the card brand, but typically about 30 days", "fixed at 120 days for every network", "unlimited until the issuer closes the case", "exactly 10 business days under federal law"],
+    answer: 0, explain: "The response period varies by brand but is typically ~30 days. Evidence can include signed receipts, contracts, AVS/CVV results, and delivery proof." },
+  { domain: "op", hard: true, q: "Which sequence correctly describes how a chargeback reaches the merchant?",
+    options: ["Customer → issuing bank → acquiring bank → merchant", "Customer → acquiring bank → issuing bank → merchant", "Customer → card network → merchant → issuing bank", "Customer → merchant → issuing bank → acquiring bank"],
+    answer: 0, explain: "The customer complains to their issuing bank; the issuer alerts the acquiring bank; the acquirer notifies the merchant." },
+  { domain: "op", hard: true, q: "Who makes the FINAL determination whether a chargeback is classified as fraud or as a service dispute?",
+    options: ["The issuing bank", "The cardholder", "The card network", "The acquiring bank"],
+    answer: 0, explain: "Per the study guide's sample questions, the issuing bank makes the final fraud-vs-service determination — it assigns the reason code." },
+  { domain: "op", hard: true, q: "A Visa 10.5 chargeback is initiated by which party?",
+    options: ["The card network (Visa)", "The cardholder", "The PSP", "The acquiring bank"],
+    answer: 0, explain: "Per the study guide, a 10.5 Visa chargeback is initiated by the card network — it stems from Visa's fraud monitoring, not a cardholder claim." },
+  { domain: "op", hard: true, q: "'Compelling evidence' in representment is best defined as:",
+    options: ["evidence beyond basic transactional data supporting issuer/customer liability", "the cardholder's signed admission that the dispute was an error", "any data the acquirer already holds about the transaction", "a network token proving the card was authenticated"],
+    answer: 0, explain: "Compelling evidence goes beyond transactional data — fraud-check results, authentication methods, prior purchase history, delivery confirmation — to argue liability lies with the issuer or customer." },
+  { domain: "op", hard: true, q: "The PCI Security Standards Council is:",
+    options: ["an independent body created by the four major card brands that enforces PCI DSS and PA-DSS", "a U.S. federal regulator established under Dodd-Frank", "a division of Visa that sets interchange rates", "an EU authority that administers PSD2 and SCA"],
+    answer: 0, explain: "The PCI SSC is an independent body created by the four major card brands; it maintains and enforces PCI DSS (and PA-DSS for POS applications)." },
+  { domain: "op", hard: true, q: "The Durbin Amendment, part of the 2010 Dodd-Frank law, was intended to:",
+    options: ["lower interchange fees on debit-card transactions", "raise credit-card interchange to fund fraud programs", "mandate 3DS for all U.S. eCommerce", "require GDPR-style consent for U.S. consumers"],
+    answer: 0, explain: "Durbin (Dodd-Frank, 2010) lowered debit interchange on the rationale that debit carries the lowest fraud risk and should cost less than riskier transactions." },
+  { domain: "prov", hard: true, q: "Per the study guide, the 'processing fees' a merchant pays are composed of:",
+    options: ["interchange, assessment, and payment-processing fees", "interchange and chargeback fees only", "assessment fees and network fines", "foreign-transaction fees and gateway fees"],
+    answer: 0, explain: "Processing fees split among the institutions enabling card payments and include interchange, assessment, and payment-processing components." },
+  { domain: "prov", hard: true, q: "Interchange fees are paid to which party?",
+    options: ["the card-issuing bank (to cover handling, fraud, bad debt, risk)", "the acquiring bank, as its primary margin", "the card network, as a per-transaction assessment", "the payment gateway, for routing the message"],
+    answer: 0, explain: "Interchange is paid to the card-issuing bank to cover handling, fraud, bad-debt, and risk costs. Assessments, by contrast, go to the card associations/networks." },
+  { domain: "prov", hard: true, q: "The single interchange line on a merchant's bill actually reflects approximately how many underlying rates?",
+    options: ["around 300 individual interchange fees", "exactly 12, one per PCI DSS requirement", "4, one per major card brand", "a single flat rate set by the acquirer"],
+    answer: 0, explain: "Roughly 300 individual interchange fees roll up into the single bundled figure; rates vary by card type, MCC, and transaction type." },
+  { domain: "prov", hard: true, q: "An assessment fee (sometimes called a 'swipe fee') is:",
+    options: ["charged on total monthly sales per brand and paid to the card associations", "charged per chargeback and paid to the issuer", "a cross-border surcharge paid by the cardholder", "a penalty assessed only after a VDMP breach"],
+    answer: 0, explain: "Assessment fees are charged on total monthly sales for each brand and paid entirely to the card associations for accepting/processing their cards." },
+  { domain: "prov", hard: true, q: "Which statement about interchange and assessment fees is TRUE per the study guide?",
+    options: ["They are the same for all merchants regardless of size or volume", "Large merchants always negotiate lower interchange than small ones", "They are set individually by each acquirer", "They are waived for merchants enrolled in 3DS"],
+    answer: 0, explain: "The study guide states interchange and assessments are the same for all merchants regardless of size or volume; the acquirer's markup is the negotiable part." },
+  { domain: "prov", hard: true, q: "A foreign transaction fee (FTF) is composed of two charges, from:",
+    options: ["the card issuer and the card network", "the acquirer and the merchant's gateway", "the issuer and the PCI SSC", "two separate networks splitting the cross-border route"],
+    answer: 0, explain: "An FTF has two parts: one from the card issuer (e.g., Chase, BofA, Citi) and one from the network (Visa, Mastercard, Discover, Amex). Terms vary by card." },
+  { domain: "prov", hard: true, q: "All else equal, which transaction typically carries HIGHER interchange due to risk?",
+    options: ["A card-not-present (CNP) eCommerce order", "A PIN-debit point-of-sale purchase", "An EMV chip-read in-store sale", "A PIN-debit ATM withdrawal"],
+    answer: 0, explain: "CNP is riskier than POS because chip/PIN can't verify the card in person; PIN-debit and EMV chip transactions are lower-risk and lower-rate." },
+  { domain: "prov", hard: true, q: "Which mapping of bank roles is correct?",
+    options: ["Issuing bank = customer's bank; acquiring bank = merchant's bank", "Issuing bank = merchant's bank; acquiring bank = customer's bank", "Both are the merchant's bank under different names", "Acquiring bank issues the card; issuing bank settles funds"],
+    answer: 0, explain: "The issuer provides the customer's card; the acquirer receives funds for the merchant. On authorization, the issuer transfers money to the acquirer, who passes it to the merchant." },
+  { domain: "prov", hard: true, q: "An acquirer processor's role is to:",
+    options: ["authorize transactions and receive transaction data on the acquiring side", "provide the cardholder with a credit line", "set interchange rates for the network", "store the CVV for recurring billing"],
+    answer: 0, explain: "The acquirer processor authorizes transactions and receives transaction data on the acquiring side; the issuer processor connects card schemes with issuing banks." },
+  { domain: "prov", hard: true, q: "Which is a common fraud-management SLA a merchant should secure for events like Black Friday?",
+    options: ["Capacity to handle traffic spikes without degradation", "A guaranteed minimum chargeback win rate", "A fixed interchange rate for the contract term", "Waiver of all assessment fees during promotions"],
+    answer: 0, explain: "SLAs commonly cover uptime, capacity for traffic spikes (promotions, Black Friday), training, and support response time — not interchange or guaranteed win rates." },
+  { domain: "feat", hard: true, q: "After authorization, which data may a PSP retain, and which may it NEVER store?",
+    options: ["It may store PAN and expiration date; it may never store the CVC", "It may store the CVC; it may never store the PAN", "It may store all three under PCI controls", "It may store none of PAN, expiry, or CVC"],
+    answer: 0, explain: "The CVC (back-of-card security code) cannot be stored by anyone in the approval chain, including the PSP — which may retain PAN and expiration date under PCI controls." },
+  { domain: "feat", hard: true, q: "Point-to-Point Encryption (P2PE), a PCI SSC standard, encrypts transaction data:",
+    options: ["from point-of-sale entry to the final processing point", "only while at rest in the merchant's database", "from the issuer to the cardholder's device", "only across the merchant's internal Wi-Fi"],
+    answer: 0, explain: "P2PE secures data from POS entry through to the final processing point, shrinking the cardholder-data environment exposed to the merchant." },
+  { domain: "feat", hard: true, q: "Network tokenization improves security by:",
+    options: ["swapping the PAN for a network-issued token so the real card number isn't exposed", "encrypting the CVV inside the magnetic stripe", "rotating the cardholder's billing ZIP on each charge", "appending a checksum to the authorization message"],
+    answer: 0, explain: "Tokenization replaces the PAN with a network-issued token, so the actual card number isn't stored or transmitted in the clear — limiting breach value." },
+  { domain: "feat", hard: true, q: "When selecting alternative payment methods, which tradeoff matters MOST for chargeback exposure?",
+    options: ["Whether the method supports disputes (chargebacks) at all", "Whether the method's logo is well recognized", "Whether the method offers a mobile SDK", "Whether the method appears first at checkout"],
+    answer: 0, explain: "Some payment methods support disputes/chargebacks and some don't. A method without a dispute mechanism changes the risk picture — a key tradeoff alongside settlement timing, SCA, recurring, refunds, and reach." },
+  { domain: "feat", hard: true, q: "Why might a merchant favor a payment method that 'naturally meets SCA'?",
+    options: ["The customer proves identity before approval, satisfying PSD2 without added friction", "It exempts the merchant from all PCI DSS requirements", "It eliminates interchange on those transactions", "It guarantees a 100% authorization rate"],
+    answer: 0, explain: "Some methods inherently satisfy Strong Customer Authentication (identity proven pre-approval), meeting PSD2 in Europe without bolting on extra 3DS friction." },
+  { domain: "feat", hard: true, q: "Per the study guide, to keep device identities from being hacked in the payment chain, cryptographic keys must be:",
+    options: ["generated by a Hardware Security Module (HSM)", "emailed to the merchant's fraud team for backup", "stored in the POS terminal's plain configuration file", "shared across all of a merchant's devices for consistency"],
+    answer: 0, explain: "PCI-attested devices start the secure chain; to ensure device identities can't be hacked, keys must be generated by an HSM, enabling non-repudiable, tamper-protected transactions." },
+  { domain: "feat", hard: true, q: "In the product management lifecycle described in the study guide, the first phase is:",
+    options: ["Ideation", "Deprecation", "Monetization", "Arbitration"],
+    answer: 0, explain: "The lifecycle runs from concept to reinvention/discontinuation; Phase 1 is Ideation, centering customer pain points, possible solutions, and opportunities." }
 ];
 
 const DOMAIN_LABELS = {
@@ -1866,7 +2005,8 @@ function startQuiz(mode) {
   let pool = [...QUESTIONS];
   let label = '';
   if (mode === 'quick') { pool = pickWeighted(pool, 20); label = 'Quick Drill'; }
-  else if (mode === 'full') { pool = shuffle([...QUESTIONS]); label = 'Full Exam'; }
+  else if (mode === 'full') { pool = pickWeighted([...QUESTIONS], 115); label = 'Full Exam'; }
+  else if (mode === 'hard') { pool = pickWeighted(QUESTIONS.filter(q => q.hard), 30); label = 'Challenge'; }
   else { pool = shuffle(pool.filter(q => q.domain === mode)); label = DOMAIN_LABELS[mode] + ' only'; }
   pool = pool.map(q => {
     const order = shuffle([0, 1, 2, 3]);
