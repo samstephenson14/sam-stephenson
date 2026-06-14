@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 — Page Not Found | Samuel Stephenson</title>
+  <title>404 — Page Not Found | Sam Stephenson</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
@@ -65,6 +65,8 @@
       h1 { font-size: 1.7em; }
       .link-grid { grid-template-columns: repeat(2, 1fr); }
     }
+    .error-emoji svg { width: 1em; height: 1em; stroke: #9d7bd8; }
+    .quick-link-icon svg { width: 1em; height: 1em; stroke: #9d7bd8; }
   </style>
 </head>
 <body>
@@ -72,7 +74,7 @@
   <script src="nav.js"></script>
 
   <div class="error-container">
-    <div class="error-emoji">🤔</div>
+    <div class="error-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
     <div class="error-code">404</div>
     <h1>Page Not Found</h1>
     <p class="error-message">Looks like this page took an unexpected detour. It might have been moved, deleted, or perhaps it never existed. Let's get you back on track.</p>
@@ -80,18 +82,18 @@
     <div class="helpful-links">
       <h2>Where would you like to go?</h2>
       <div class="link-grid">
-        <a href="index.html"      class="quick-link"><span class="quick-link-icon">🏠</span><span class="quick-link-text">Home</span></a>
-        <a href="cv.html"         class="quick-link"><span class="quick-link-icon">📄</span><span class="quick-link-text">Resume</span></a>
-        <a href="projects.html"   class="quick-link"><span class="quick-link-icon">💼</span><span class="quick-link-text">Projects</span></a>
-        <a href="blog.html"       class="quick-link"><span class="quick-link-icon">✍️</span><span class="quick-link-text">Blog</span></a>
-        <a href="resources.html"  class="quick-link"><span class="quick-link-icon">🎁</span><span class="quick-link-text">Resources</span></a>
-        <a href="contact.html"    class="quick-link"><span class="quick-link-icon">📧</span><span class="quick-link-text">Contact</span></a>
+        <a href="index.html"      class="quick-link"><span class="quick-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span class="quick-link-text">Home</span></a>
+        <a href="cv.html"         class="quick-link"><span class="quick-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></span><span class="quick-link-text">Resume</span></a>
+        <a href="projects.html"   class="quick-link"><span class="quick-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></span><span class="quick-link-text">Projects</span></a>
+        <a href="blog.html"       class="quick-link"><span class="quick-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg></span><span class="quick-link-text">Blog</span></a>
+        <a href="resources.html"  class="quick-link"><span class="quick-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg></span><span class="quick-link-text">Resources</span></a>
+        <a href="contact.html"    class="quick-link"><span class="quick-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span><span class="quick-link-text">Contact</span></a>
       </div>
-      <a href="index.html" class="home-button">🏠 Take Me Home</a>
+      <a href="index.html" class="home-button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="width:1.05em;height:1.05em;vertical-align:-0.15em;margin-right:7px"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Take Me Home</a>
     </div>
 
     <footer>
-      <p>© <span class="footer-year"></span> Samuel Stephenson · If you believe this is an error, <a href="contact.html">let me know</a>.</p>
+      <p>© <span class="footer-year"></span> Sam Stephenson · If you believe this is an error, <a href="contact.html">let me know</a>.</p>
     </footer>
   </div>
 
