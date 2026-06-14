@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Samuel Stephenson</title>
-  <meta name="description" content="Get in touch with Samuel Stephenson about consulting, collaboration, or project management opportunities in AI implementation, chargeback operations, and fraud prevention.">
+  <title>Contact — Sam Stephenson</title>
+  <meta name="description" content="Get in touch with Sam Stephenson about consulting, collaboration, or project management opportunities in AI implementation, chargeback operations, and fraud prevention.">
   <link rel="canonical" href="https://www.samstephenson.me/contact.html">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.samstephenson.me/contact.html">
-  <meta property="og:title" content="Contact Samuel Stephenson">
+  <meta property="og:title" content="Contact Sam Stephenson">
   <meta property="og:description" content="Have a project in mind? Want to discuss chargeback optimisation or AI implementation? Let's talk.">
   <meta property="og:image" content="https://www.samstephenson.me/images/sam.jpg">
   <style>
@@ -90,6 +90,8 @@
       .page-header h1 { font-size: 2.2em; }
       .contact-form-container { padding: 28px 18px; }
     }
+    .contact-method-icon svg { width: 1em; height: 1em; stroke: #9d7bd8; }
+    #submitIcon svg { width: 1em; height: 1em; vertical-align: -0.12em; }
   </style>
 </head>
 <body>
@@ -107,21 +109,21 @@
         <h2>Connect With Me</h2>
         <div class="contact-methods">
           <div class="contact-method">
-            <div class="contact-method-icon">📧</div>
+            <div class="contact-method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
             <div class="contact-method-info">
               <h3>Email</h3>
               <a href="mailto:samstephenson14@gmail.com">samstephenson14@gmail.com</a>
             </div>
           </div>
           <div class="contact-method">
-            <div class="contact-method-icon">💼</div>
+            <div class="contact-method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
             <div class="contact-method-info">
               <h3>LinkedIn</h3>
               <a href="https://www.linkedin.com/in/sam-stephenson-67ab7b9" target="_blank" rel="noopener">Connect on LinkedIn</a>
             </div>
           </div>
           <div class="contact-method">
-            <div class="contact-method-icon">💻</div>
+            <div class="contact-method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
             <div class="contact-method-info">
               <h3>GitHub</h3>
               <a href="https://github.com/samstephenson14" target="_blank" rel="noopener">View My Code</a>
@@ -159,7 +161,7 @@
           </div>
           <button type="submit" class="form-submit" id="submitBtn">
             <span id="submitText">Send Message</span>
-            <span id="submitIcon">📤</span>
+            <span id="submitIcon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg></span>
           </button>
           <div class="form-message" id="formMessage"></div>
         </form>
@@ -168,7 +170,7 @@
   </div>
 
   <footer>
-    <p>© <span class="footer-year"></span> Samuel Stephenson · Built with integrity and purpose</p>
+    <p>© <span class="footer-year"></span> Sam Stephenson · Built with integrity and purpose</p>
   </footer>
 
   <script>
@@ -186,15 +188,15 @@
         var res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
         if(res.ok){
           msg.className='form-message success'; msg.textContent='✓ Message sent! I\'ll get back to you soon.';
-          form.reset(); ico.textContent='✓';
+          form.reset(); ico.innerHTML='<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>';
         } else {
-          msg.className='form-message error'; msg.textContent='✗ Something went wrong. Please try again or email me directly.'; ico.textContent='✗';
+          msg.className='form-message error'; msg.textContent='✗ Something went wrong. Please try again or email me directly.'; ico.innerHTML='<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M18 6 6 18\"/><path d=\"M6 6l12 12\"/></svg>';
         }
       } catch(err){
-        msg.className='form-message error'; msg.textContent='✗ Network error. Please check your connection.'; ico.textContent='✗';
+        msg.className='form-message error'; msg.textContent='✗ Network error. Please check your connection.'; ico.innerHTML='<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M18 6 6 18\"/><path d=\"M6 6l12 12\"/></svg>';
       } finally {
         btn.disabled=false; txt.textContent='Send Message';
-        setTimeout(function(){ ico.textContent='📤'; },2000);
+        setTimeout(function(){ ico.innerHTML='<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z\"/><path d=\"m21.854 2.147-10.94 10.939\"/></svg>'; },2000);
       }
     });
   </script>
