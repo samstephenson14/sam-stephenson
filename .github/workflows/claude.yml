@@ -1,0 +1,22 @@
+name: Claude Code Review and Fixes
+on:
+  pull_request:
+    types: [opened, synchronize]
+  issue_comment:
+    types: [created]
+
+jobs:
+  claude_agent:
+    runs-on: ubuntu-latest
+    # Prevents the workflow from running on forks of your repository
+    if: github.repository_owner == github.actor || github.event_name == 'issue_comment'
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Claude Agent
+        uses: anthropic/claude-github-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          max_budget_usd: "2.00"
+          review_required: "true"
