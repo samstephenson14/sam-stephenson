@@ -50,3 +50,4 @@ This section is not about the website's code — it's standing context for Claud
 **Goals**:
 - Long-term: turn samstephenson.me into a learning project for AI engineering, eventually leading to a personal digital-clone/assistant agent, and using the site as a brief CV.
 - Near-term priority: a personal assistant Sam directs directly — give it tasks, it researches/acts, reports back, and asks how to proceed. Not yet a public-facing chatbot (that's a later phase requiring separate metered API billing, not covered by his claude.ai subscription).
+- **Non-negotiable before any agent becomes public-facing on samstephenson.me**: all of the following must be in place first — a hard monthly spending cap set in the Anthropic console, per-visitor rate limiting, a response length cap (`max_tokens`) on every request, and the API key must never be exposed to the browser/client (always called from a server Sam controls). Do not deploy anything public-facing without all four.
