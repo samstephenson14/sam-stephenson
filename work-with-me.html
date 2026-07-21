@@ -8,26 +8,16 @@
   <meta name="keywords" content="AI implementation, RPA, chargeback optimisation, fraud prevention, risk operations, project manager, Montreal">
   <link rel="canonical" href="https://www.samstephenson.me/work-with-me.html">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="shared.css">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.samstephenson.me/work-with-me.html">
   <meta property="og:title" content="Work With Me — Sam Stephenson">
   <meta property="og:description" content="AI/RPA implementation, chargeback recovery, and fraud prevention. $7M+ in proven results.">
   <meta property="og:image" content="https://www.samstephenson.me/images/sam.jpg">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6; color: #e0e0e0; background: #0a0f1e;
-      background-image:
-        radial-gradient(at 20% 30%, rgba(157,123,216,0.15) 0px, transparent 50%),
-        radial-gradient(at 80% 70%, rgba(32,178,170,0.15) 0px, transparent 50%);
-      background-attachment: fixed; min-height: 100vh;
-    }
     .hero { max-width: 900px; margin: 0 auto; padding: 80px 20px 60px; text-align: center; animation: fadeInUp 0.6s ease-out; }
     .hero h1 {
       font-size: 3.5em; margin-bottom: 20px; font-weight: 700;
-      background: linear-gradient(135deg, #9d7bd8 0%, #20b2aa 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     .hero-subtitle { font-size: 1.4em; color: #9ca3af; margin-bottom: 28px; }
     .hero-description { font-size: 1.15em; color: #d1d5db; line-height: 1.8; max-width: 680px; margin: 0 auto 36px; }
@@ -35,15 +25,9 @@
     .proof-item { text-align: center; }
     .proof-number {
       font-size: 2.4em; font-weight: 700;
-      background: linear-gradient(135deg, #9d7bd8, #20b2aa);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     .proof-label { color: #9ca3af; font-size: 0.9em; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
     .section-title { text-align: center; font-size: 2.4em; color: #fff; margin-bottom: 12px; font-weight: 700; }
     .section-subtitle { text-align: center; font-size: 1.1em; color: #9ca3af; margin-bottom: 46px; }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 26px; margin-bottom: 70px; }
@@ -114,7 +98,6 @@
     .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(157,123,216,0.7); }
     .btn-secondary { background: rgba(17,24,39,0.7); color: #9d7bd8; border: 2px solid #9d7bd8; }
     .btn-secondary:hover { background: rgba(157,123,216,0.1); transform: translateY(-2px); }
-    footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 0.9em; }
     @media(max-width:768px) {
       .hero h1 { font-size: 2.5em; }
       .services-grid { grid-template-columns: 1fr; }
@@ -129,13 +112,13 @@
   <script src="nav.js"></script>
 
   <div class="hero">
-    <h1>Work With Me</h1>
+    <h1 class="gradient-text">Work With Me</h1>
     <p class="hero-subtitle">AI, automation, and risk operations that move the numbers</p>
     <p class="hero-description">I build and lead the systems that turn manual risk operations into measurable results — chargeback recovery, AI/RPA implementation, and fraud prevention. Here's where I create the most impact, how I work, and what I've delivered.</p>
     <div class="social-proof">
-      <div class="proof-item"><div class="proof-number">$7M+</div><div class="proof-label">Revenue Recovered</div></div>
-      <div class="proof-item"><div class="proof-number">68%</div><div class="proof-label">Win Rate Achieved</div></div>
-      <div class="proof-item"><div class="proof-number">66K+</div><div class="proof-label">Disputes Processed</div></div>
+      <div class="proof-item"><div class="proof-number gradient-text">$7M+</div><div class="proof-label">Revenue Recovered</div></div>
+      <div class="proof-item"><div class="proof-number gradient-text">68%</div><div class="proof-label">Win Rate Achieved</div></div>
+      <div class="proof-item"><div class="proof-number gradient-text">66K+</div><div class="proof-label">Disputes Processed</div></div>
     </div>
   </div>
 
@@ -146,7 +129,7 @@
     <div class="services-grid">
       <div class="service-card featured">
         
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#bot"></use></svg></div>
         <h3>AI & RPA Implementation</h3>
         <p class="service-description">I turn manual processes into intelligent automation — spotting the opportunities, selecting tools, and managing implementation end-to-end. At Super.com this drove $5M+/year in recovery and cut analyst workload by 6+ hours a day.</p>
         <ul class="service-features">
@@ -158,7 +141,7 @@
         </ul>
       </div>
       <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#shield-check"></use></svg></div>
         <h3>Chargeback Optimisation</h3>
         <p class="service-description">Raising win rates and recovering lost revenue. I took dispute operations from 38% to 68% win rates while scaling volume 15×.</p>
         <ul class="service-features">
@@ -170,7 +153,7 @@
         </ul>
       </div>
       <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#search"></use></svg></div>
         <h3>Fraud Detection Systems</h3>
         <p class="service-description">Designing fraud prevention that catches sophisticated attacks while minimising false positives. At Hopper I helped uncover a coordinated fraud ring and prevent $200K+ in losses.</p>
         <ul class="service-features">
@@ -182,7 +165,7 @@
         </ul>
       </div>
       <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#bar-chart"></use></svg></div>
         <h3>Project Management & Strategy</h3>
         <p class="service-description">Leading complex cross-functional initiatives from planning to execution. Structure, accountability, and results on the initiatives that matter most.</p>
         <ul class="service-features">
@@ -194,7 +177,7 @@
         </ul>
       </div>
       <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#settings"></use></svg></div>
         <h3>Process Optimisation</h3>
         <p class="service-description">Identify inefficiencies, eliminate bottlenecks, and build scalable operations. Save thousands of hours annually through intelligent process design.</p>
         <ul class="service-features">
@@ -206,7 +189,7 @@
         </ul>
       </div>
       <div class="service-card">
-        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#users"></use></svg></div>
         <h3>Team Leadership &amp; Enablement</h3>
         <p class="service-description">Leading and growing analyst teams — hiring, KPIs and OKRs, and building the tools and SOPs that let operations scale beyond any one person.</p>
         <ul class="service-features">
@@ -261,8 +244,8 @@
       <h2>Looking for someone who can do this for your team?</h2>
       <p>If you're building out risk, fraud, or operations and need someone who turns ambiguity into measurable results, I'd love to talk.</p>
       <div class="cta-buttons">
-        <a href="contact.html" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="width:1.05em;height:1.05em;vertical-align:-0.15em;margin-right:7px"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Get In Touch</a>
-        <a href="cv.html" class="btn btn-secondary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="width:1.05em;height:1.05em;vertical-align:-0.15em;margin-right:7px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>View Experience</a>
+        <a href="contact.html" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="width:1.05em;height:1.05em;vertical-align:-0.15em;margin-right:7px"><use href="icons.svg#mail"></use></svg>Get In Touch</a>
+        <a href="cv.html" class="btn btn-secondary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="width:1.05em;height:1.05em;vertical-align:-0.15em;margin-right:7px"><use href="icons.svg#file-text"></use></svg>View Experience</a>
       </div>
     </div>
   </div>
