@@ -32,3 +32,16 @@ body {
 footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 0.9em; }
 footer a { color: #9d7bd8; text-decoration: none; }
 footer a:hover { color: #20b2aa; }
+
+/* Visible keyboard-focus ring — links, buttons, and form fields only show
+   the browser's default outline otherwise, which is inconsistent and low
+   contrast against the dark background. Skipped for mouse/touch clicks. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #20b2aa;
+  outline-offset: 3px;
+  border-radius: 4px;
+}

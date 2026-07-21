@@ -47,7 +47,6 @@
         '<li><a href="cv.html" data-page="cv">Resume</a></li>' +
         '<li><a href="about.html" data-page="about">About</a></li>' +
         '<li><a href="projects.html" data-page="projects">Projects</a></li>' +
-        '<li><a href="blog.html" data-page="blog">Blog</a></li>' +
         '<li><a href="resources.html" data-page="resources">Resources</a></li>' +
         '<li><a href="testimonials.html" data-page="testimonials">Testimonials</a></li>' +
         '<li><a href="work-with-me.html" data-page="work-with-me">Work With Me</a></li>' +
