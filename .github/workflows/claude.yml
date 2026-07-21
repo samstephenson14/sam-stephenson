@@ -17,6 +17,6 @@ jobs:
       - name: Run Claude Agent
         uses: anthropic/claude-github-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          anthropic_api: ${{ secrets.ANTHROPIC_API }}
           max_budget_usd: "2.00"
           review_required: "true"
