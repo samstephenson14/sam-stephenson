@@ -7,26 +7,14 @@
   <meta name="description" content="About Samuel Stephenson — former US Air Force intelligence analyst turned project manager. Persian, Dari, and French speaker. Based in Montreal, Quebec.">
   <link rel="canonical" href="https://www.samstephenson.me/about.html">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="shared.css">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://www.samstephenson.me/about.html">
   <meta property="og:title" content="About Samuel Stephenson">
   <meta property="og:description" content="From flying intelligence missions over Iran to building AI systems that recover millions — a career built on finding signal in noise.">
   <meta property="og:image" content="https://www.samstephenson.me/images/sam.jpg">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6; color: #e0e0e0; background: #0a0f1e;
-      background-image:
-        radial-gradient(at 20% 30%, rgba(157,123,216,0.15) 0px, transparent 50%),
-        radial-gradient(at 80% 70%, rgba(32,178,170,0.15) 0px, transparent 50%);
-      background-attachment: fixed; min-height: 100vh;
-    }
     .container { max-width: 860px; margin: 0 auto; padding: 60px 20px 80px; }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
     .section {
       background: rgba(17,24,39,0.7); backdrop-filter: blur(10px);
       border-radius: 16px; padding: 40px; margin-bottom: 30px;
@@ -52,8 +40,6 @@
     }
     .hero-text h1 {
       font-size: 2.8em; font-weight: 700; margin-bottom: 8px;
-      background: linear-gradient(135deg, #9d7bd8, #20b2aa);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     .hero-text .tagline { font-size: 1.2em; color: #20b2aa; margin-bottom: 10px; }
     .hero-text .location { color: #9ca3af; font-size: 0.95em; }
@@ -123,7 +109,6 @@
       transition: all 0.3s;
     }
     .cta-links a:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(157,123,216,0.7); }
-    footer { text-align: center; padding: 30px 20px; color: #9ca3af; font-size: 0.9em; }
     @media(max-width:640px) {
       .hero-section { flex-direction: column; text-align: center; }
       .hero-text h1 { font-size: 2em; }
@@ -145,7 +130,7 @@
       >
       <div class="hero-fallback" aria-hidden="true">SS</div>
       <div class="hero-text">
-        <h1>Samuel Stephenson</h1>
+        <h1 class="gradient-text">Samuel Stephenson</h1>
         <p class="tagline">Project Manager · AI & Operations Specialist</p>
         <p class="location">📍 Montreal, Quebec · 🇺🇸 Originally from Michigan</p>
       </div>

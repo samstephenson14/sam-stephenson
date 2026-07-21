@@ -7,30 +7,16 @@
   <meta name="description" content="Professional recognition, measurable results, and testimonials from Sam Stephenson's career in project management, AI implementation, and risk operations.">
   <link rel="canonical" href="https://www.samstephenson.me/testimonials.html">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="shared.css">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.samstephenson.me/testimonials.html">
   <meta property="og:title" content="Testimonials & Results — Sam Stephenson">
   <meta property="og:description" content="$7M+ recovered, 68% win rate, 66K disputes/yr — and the people who were there to see it.">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6; color: #e0e0e0; background: #0a0f1e;
-      background-image:
-        radial-gradient(at 20% 30%, rgba(157,123,216,0.15) 0px, transparent 50%),
-        radial-gradient(at 80% 70%, rgba(32,178,170,0.15) 0px, transparent 50%);
-      background-attachment: fixed; min-height: 100vh;
-    }
     .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px 80px; }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
     .page-header { text-align: center; margin-bottom: 60px; animation: fadeInUp 0.6s ease-out; }
     .page-header h1 {
       font-size: 3em; margin-bottom: 14px; font-weight: 700;
-      background: linear-gradient(135deg, #9d7bd8 0%, #20b2aa 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     .page-header p { font-size: 1.15em; color: #9ca3af; max-width: 600px; margin: 0 auto; }
     /* Results metrics */
@@ -90,11 +76,6 @@
     }
     .author-name { color: #ffffff; font-weight: 600; font-size: 1em; }
     .author-title { color: #9ca3af; font-size: 0.85em; }
-    .placeholder-note {
-      display: inline-block; font-size: 0.75em; color: #9d7bd8;
-      background: rgba(157,123,216,0.1); border: 1px solid rgba(157,123,216,0.3);
-      border-radius: 4px; padding: 2px 8px; margin-top: 4px;
-    }
     /* LinkedIn CTA */
     .linkedin-section {
       background: rgba(17,24,39,0.7); backdrop-filter: blur(10px);
@@ -140,12 +121,20 @@
       box-shadow: 0 4px 15px rgba(157,123,216,0.4); transition: all 0.3s;
     }
     .ref-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(157,123,216,0.7); }
-    footer { text-align: center; padding: 30px 20px; color: #9ca3af; font-size: 0.9em; }
     @media(max-width:640px) {
       .page-header h1 { font-size: 2.2em; }
       .testimonials-grid { grid-template-columns: 1fr; }
     }
     .linkedin-icon svg, .award-icon svg { width: 1em; height: 1em; stroke: #9d7bd8; }
+    .testimonials-empty {
+      background: rgba(17,24,39,0.7); backdrop-filter: blur(10px);
+      border-radius: 16px; padding: 48px 32px; margin-bottom: 50px;
+      border: 1px solid rgba(157,123,216,0.3); text-align: center;
+      animation: fadeInUp 0.6s ease-out;
+    }
+    .testimonials-empty-icon { font-size: 2.4em; margin-bottom: 14px; }
+    .testimonials-empty h3 { color: #ffffff; font-size: 1.3em; margin-bottom: 10px; }
+    .testimonials-empty p { color: #9ca3af; max-width: 480px; margin: 0 auto; line-height: 1.7; }
   </style>
 </head>
 <body>
@@ -154,7 +143,7 @@
 
   <div class="container">
     <div class="page-header">
-      <h1>Results & Recognition</h1>
+      <h1 class="gradient-text">Results & Recognition</h1>
       <p>Numbers don't lie — and neither do the people who worked alongside me to produce them.</p>
     </div>
 
@@ -194,20 +183,14 @@
 
     <!-- Testimonials -->
     <h2>What People Say</h2>
-    <div class="testimonials-grid">
-      <!--
-        =============================================
-        ADD YOUR REAL TESTIMONIALS HERE
-        =============================================
-        Replace the placeholder content below with
-        actual quotes from colleagues, managers, or clients.
+    <!--
+      =============================================
+      ADD REAL TESTIMONIALS HERE
+      =============================================
+      Once real quotes are collected, replace .testimonials-empty
+      below with a .testimonials-grid of .testimonial-card blocks:
 
-        To get testimonials:
-        1. Ask for LinkedIn recommendations from direct managers and close colleagues
-        2. Request written quotes from collaborators on key projects
-        3. Paste shortened versions here with their permission
-
-        Template for each card:
+      <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="quote-mark">"</div>
           <p class="quote-text">Their actual quote goes here...</p>
@@ -219,64 +202,26 @@
             </div>
           </div>
         </div>
-        =============================================
-      -->
-      <div class="testimonial-card">
-        <div class="quote-mark">"</div>
-        <p class="quote-text">
-          Sam has an uncanny ability to take a complex operational problem, strip it down to its essentials,
-          and come back with a solution that actually sticks. The AI chargeback work he led didn't just
-          save us money — it fundamentally changed how we think about dispute operations.
-        </p>
-        <div class="quote-author">
-          <div class="author-avatar">—</div>
-          <div>
-            <div class="author-name">[Manager Name]</div>
-            <div class="author-title">[Title] · Super.com</div>
-            <div class="placeholder-note">Replace with real testimonial</div>
-          </div>
-        </div>
       </div>
 
-      <div class="testimonial-card">
-        <div class="quote-mark">"</div>
-        <p class="quote-text">
-          What sets Sam apart is that he doesn't just manage projects — he genuinely understands the
-          business problem underneath them. He'll push back when the approach isn't right, and he's
-          almost always correct when he does. A rare combination of analytical rigour and practical execution.
-        </p>
-        <div class="quote-author">
-          <div class="author-avatar">—</div>
-          <div>
-            <div class="author-name">[Colleague Name]</div>
-            <div class="author-title">[Title] · [Company]</div>
-            <div class="placeholder-note">Replace with real testimonial</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="quote-mark">"</div>
-        <p class="quote-text">
-          I've worked with a lot of analysts, but Sam's military background shows in his attention
-          to detail and his ability to work calmly under pressure. He built the fraud detection
-          tooling that exposed our biggest fraud ring to date, and he did it without fanfare —
-          just solid, methodical work.
-        </p>
-        <div class="quote-author">
-          <div class="author-avatar">—</div>
-          <div>
-            <div class="author-name">[Colleague Name]</div>
-            <div class="author-title">[Title] · Hopper</div>
-            <div class="placeholder-note">Replace with real testimonial</div>
-          </div>
-        </div>
-      </div>
+      To get testimonials:
+      1. Ask for LinkedIn recommendations from direct managers and close colleagues
+      2. Request written quotes from collaborators on key projects
+      3. Paste real quotes here with their permission
+      =============================================
+    -->
+    <div class="testimonials-empty">
+      <div class="testimonials-empty-icon">💬</div>
+      <h3>Testimonials coming soon</h3>
+      <p>
+        I'm in the process of collecting real quotes from managers and colleagues — this section will
+        be updated once they're in. In the meantime, see verified recommendations on my LinkedIn profile.
+      </p>
     </div>
 
     <!-- LinkedIn recommendations -->
     <div class="linkedin-section">
-      <div class="linkedin-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+      <div class="linkedin-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#linkedin"></use></svg></div>
       <h3>LinkedIn Recommendations</h3>
       <p>
         My full set of professional recommendations from colleagues, managers, and
@@ -291,42 +236,42 @@
     <h2>Awards & Recognition</h2>
     <div class="awards-list">
       <div class="award-item">
-        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><path d="M11 12 5.12 2.2"/><path d="m13 12 5.88-9.8"/><path d="M8 7h8"/><circle cx="12" cy="17" r="5"/><path d="M12 18v-2h-.5"/></svg></div>
+        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#medal"></use></svg></div>
         <div>
           <div class="award-name">Air Force Commendation Medal</div>
           <div class="award-body">Awarded for meritorious service during airborne intelligence operations</div>
         </div>
       </div>
       <div class="award-item">
-        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#ribbon"></use></svg></div>
         <div>
           <div class="award-name">Air Force Good Conduct Medal (Oak Leaf Cluster)</div>
           <div class="award-body">Recognising sustained exemplary behaviour, efficiency, and fidelity</div>
         </div>
       </div>
       <div class="award-item">
-        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></div>
+        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#graduation-cap"></use></svg></div>
         <div>
           <div class="award-name">Airman Leadership School Graduate</div>
           <div class="award-body">USAF's primary enlisted professional military education course</div>
         </div>
       </div>
       <div class="award-item">
-        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg></div>
+        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#scroll"></use></svg></div>
         <div>
           <div class="award-name">RC-135 Cryptologic Operator Qualification</div>
           <div class="award-body">Airborne cryptologic language analyst — Farsi (Persian / Dari)</div>
         </div>
       </div>
       <div class="award-item">
-        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#lock"></use></svg></div>
         <div>
           <div class="award-name">Former TS/SCI Security Clearance</div>
           <div class="award-body">Top Secret / Sensitive Compartmented Information</div>
         </div>
       </div>
       <div class="award-item">
-        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="icons.svg#bot"></use></svg></div>
         <div>
           <div class="award-name">Google AI Essentials Certificate</div>
           <div class="award-body">Completed August 2025 · Google</div>
@@ -341,7 +286,7 @@
         I'm happy to connect you directly with former managers, collaborators, and
         subject-matter peers who can speak to specific projects and outcomes.
       </p>
-      <a href="contact.html" class="ref-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="width:1.05em;height:1.05em;vertical-align:-0.15em;margin-right:7px"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Request References</a>
+      <a href="contact.html" class="ref-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="width:1.05em;height:1.05em;vertical-align:-0.15em;margin-right:7px"><use href="icons.svg#mail"></use></svg>Request References</a>
     </div>
 
   </div>
