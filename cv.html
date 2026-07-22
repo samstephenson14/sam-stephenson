@@ -34,6 +34,14 @@
     header h1 a { text-decoration: none; background: inherit; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     header .title { font-size: 1.4em; color: #20b2aa; font-weight: 500; margin-bottom: 10px; }
     header .specialties { font-size: 0.95em; color: #d1d5db; max-width: 800px; margin: 0 auto; }
+    .download-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: white; text-decoration: none; font-size: 1em; font-weight: 600;
+      padding: 12px 28px; background: linear-gradient(135deg, #9d7bd8, #20b2aa);
+      border-radius: 50px; margin-top: 24px; position: relative; z-index: 1;
+      box-shadow: 0 4px 15px rgba(157,123,216,0.5); transition: all 0.3s;
+    }
+    .download-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(157,123,216,0.7); }
     .container { max-width: 1100px; margin: -50px auto 0; padding: 0 20px 60px; position: relative; z-index: 2; }
     .section {
       background: rgba(17,24,39,0.7); backdrop-filter: blur(10px);
@@ -128,6 +136,7 @@
     <h1 class="gradient-text"><a href="index.html">Samuel Stephenson</a></h1>
     <p class="title">Project Manager | AI & RPA Implementation | Risk Operations</p>
     <p class="specialties">Project Management · AI & RPA Implementation · Risk & Fraud Operations · Cross-Functional Communications · Data Analysis · Change Management</p>
+    <a class="download-btn" href="documents/Sam-Stephenson-Resume.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="width:1.1em;height:1.1em"><use href="icons.svg#download"></use></svg>Download PDF</a>
   </header>
 
   <div class="container">
