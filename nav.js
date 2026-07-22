@@ -34,7 +34,8 @@
     'border-bottom:1px solid rgba(157,123,216,0.3);',
     'transform:translateY(-100%);opacity:0;transition:all 0.3s;',
     'pointer-events:none;z-index:999;}',
-    '.nav-links.active{transform:translateY(0);opacity:1;pointer-events:all;}',
+    '.nav-links{visibility:hidden;}',
+    '.nav-links.active{visibility:visible;transform:translateY(0);opacity:1;pointer-events:all;}',
     '.nav-links a{width:100%;padding:15px 30px;border-radius:0;}',
     '.nav-cta{margin:10px 20px;border-radius:8px!important;}}'
   ].join('');
@@ -42,7 +43,7 @@
   var NAV_HTML = '<nav id="site-nav">' +
     '<div class="nav-container">' +
       '<a href="index.html" class="nav-logo" aria-label="Home">&#127968;</a>' +
-      '<button class="mobile-menu-toggle" id="nav-toggle" aria-label="Toggle menu">&#9776;</button>' +
+      '<button class="mobile-menu-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>' +
       '<ul class="nav-links" id="nav-links">' +
         '<li><a href="cv.html" data-page="cv">Resume</a></li>' +
         '<li><a href="about.html" data-page="about">About</a></li>' +
