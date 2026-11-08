@@ -164,10 +164,11 @@
     var txt  = document.getElementById('submitText');
     var ico  = document.getElementById('submitIcon');
     var msg  = document.getElementById('formMessage');
+    var SPINNER_SVG = '<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 12a9 9 0 1 1-6.219-8.56\"><animateTransform attributeName=\"transform\" type=\"rotate\" from=\"0 12 12\" to=\"360 12 12\" dur=\"0.9s\" repeatCount=\"indefinite\"/></path></svg>';
 
     form.addEventListener('submit', async function(e){
       e.preventDefault();
-      btn.disabled = true; txt.textContent = 'Sending…'; ico.textContent = '⏳';
+      btn.disabled = true; txt.textContent = 'Sending…'; ico.innerHTML = SPINNER_SVG;
       msg.style.display = 'none';
       try {
         var res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
