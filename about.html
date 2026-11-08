@@ -55,6 +55,14 @@
     p { color: #d1d5db; font-size: 1.05em; line-height: 1.9; margin-bottom: 16px; }
     p:last-of-type { margin-bottom: 0; }
     strong { color: #20b2aa; font-weight: 600; }
+
+    /* Inline SVG icons (symbols defined at top of <body>) */
+    .ico {
+      width: 1.1em; height: 1.1em; vertical-align: -0.2em; margin-right: 8px;
+      fill: none; stroke: currentColor; stroke-width: 2;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+
     .timeline { position: relative; padding-left: 28px; }
     .timeline::before {
       content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
@@ -87,7 +95,12 @@
       background: rgba(32,178,170,0.12); border: 1px solid rgba(32,178,170,0.3);
       border-radius: 10px; padding: 10px 16px;
     }
-    .lang-flag { font-size: 1.5em; }
+    .lang-code {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(32,178,170,0.18); border: 1px solid rgba(32,178,170,0.4);
+      color: #20b2aa; font-weight: 700; font-size: 0.78em; letter-spacing: 0.04em;
+    }
     .lang-info .lang-name { color: #ffffff; font-weight: 600; font-size: 0.95em; }
     .lang-info .lang-level { color: #9ca3af; font-size: 0.8em; }
     .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
@@ -96,7 +109,8 @@
       border-radius: 12px; padding: 20px; text-align: center;
       border: 1px solid rgba(157,123,216,0.2);
     }
-    .value-icon { font-size: 2em; margin-bottom: 10px; }
+    .value-icon { margin-bottom: 10px; color: #9d7bd8; }
+    .value-icon .ico { width: 2em; height: 2em; margin: 0; vertical-align: top; stroke-width: 1.75; }
     .value-title { color: #ffffff; font-weight: 600; margin-bottom: 6px; }
     .value-desc { color: #9ca3af; font-size: 0.9em; line-height: 1.5; }
     .cta-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
@@ -108,6 +122,7 @@
       box-shadow: 0 4px 15px rgba(157,123,216,0.4);
       transition: all 0.3s;
     }
+    .cta-links a .ico { margin-right: 0; }
     .cta-links a:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(157,123,216,0.7); }
     @media(max-width:640px) {
       .hero-section { flex-direction: column; text-align: center; }
@@ -116,6 +131,24 @@
   </style>
 </head>
 <body>
+  <!-- SVG icon sprite (Lucide-style, stroke-only) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" focusable="false">
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-bar-chart" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+    <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></symbol>
+    <symbol id="i-medal" viewBox="0 0 24 24"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><path d="M11 12 5.12 2.2"/><path d="m13 12 5.88-9.8"/><path d="M8 7h8"/><circle cx="12" cy="17" r="5"/><path d="M12 18v-2h-.5"/></symbol>
+    <symbol id="i-microscope" viewBox="0 0 24 24"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+    <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></symbol>
+    <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
+  </svg>
+
   <div id="nav-placeholder"></div>
   <script src="nav.js"></script>
 
@@ -135,7 +168,7 @@
       <div class="hero-text">
         <h1 class="gradient-text">Samuel Stephenson</h1>
         <p class="tagline">Project Manager · AI & Operations Specialist</p>
-        <p class="location">📍 Montreal, Quebec · 🇺🇸 Originally from Michigan</p>
+        <p class="location"><svg class="ico" aria-hidden="true"><use href="#i-map-pin"/></svg>Montreal, Quebec · Originally from Michigan</p>
       </div>
     </div>
 
@@ -211,28 +244,28 @@
       <h2>Languages</h2>
       <div class="lang-grid">
         <div class="lang-badge">
-          <span class="lang-flag">🇺🇸</span>
+          <span class="lang-code" aria-hidden="true">EN</span>
           <div class="lang-info">
             <div class="lang-name">English</div>
             <div class="lang-level">Native</div>
           </div>
         </div>
         <div class="lang-badge">
-          <span class="lang-flag">🇮🇷</span>
+          <span class="lang-code" aria-hidden="true">FA</span>
           <div class="lang-info">
             <div class="lang-name">Persian Farsi</div>
             <div class="lang-level">Professional working proficiency</div>
           </div>
         </div>
         <div class="lang-badge">
-          <span class="lang-flag">🇦🇫</span>
+          <span class="lang-code" aria-hidden="true">PRS</span>
           <div class="lang-info">
             <div class="lang-name">Afghan Dari</div>
             <div class="lang-level">Professional working proficiency</div>
           </div>
         </div>
         <div class="lang-badge">
-          <span class="lang-flag">🇫🇷</span>
+          <span class="lang-code" aria-hidden="true">FR</span>
           <div class="lang-info">
             <div class="lang-name">French</div>
             <div class="lang-level">Intermediate</div>
@@ -246,27 +279,27 @@
       <h2>What I Bring to Every Project</h2>
       <div class="skills-grid">
         <div class="skill-card">
-          <h3>🎯 Precision</h3>
+          <h3><svg class="ico" aria-hidden="true"><use href="#i-target"/></svg>Precision</h3>
           <p>Six years of military intelligence work built an obsession with accuracy. I don't guess — I verify.</p>
         </div>
         <div class="skill-card">
-          <h3>📊 Data Fluency</h3>
+          <h3><svg class="ico" aria-hidden="true"><use href="#i-bar-chart"/></svg>Data Fluency</h3>
           <p>Comfortable in BigQuery, SQL, and Google Sheets. I build dashboards and tools that make data accessible to everyone on the team.</p>
         </div>
         <div class="skill-card">
-          <h3>🤖 AI & Automation</h3>
+          <h3><svg class="ico" aria-hidden="true"><use href="#i-bot"/></svg>AI & Automation</h3>
           <p>Hands-on experience implementing Luminai, Automat, and AI-assisted dispute workflows at scale. I've seen what works and what doesn't.</p>
         </div>
         <div class="skill-card">
-          <h3>🗣️ Communication</h3>
+          <h3><svg class="ico" aria-hidden="true"><use href="#i-message"/></svg>Communication</h3>
           <p>Four languages and a career bridging military, government, and startup environments means I can translate across teams fluently.</p>
         </div>
         <div class="skill-card">
-          <h3>⚡ Speed to Value</h3>
+          <h3><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg>Speed to Value</h3>
           <p>Startup experience means I bias toward shipping. I build MVPs, measure them, and iterate — not the other way around.</p>
         </div>
         <div class="skill-card">
-          <h3>📐 Structure</h3>
+          <h3><svg class="ico" aria-hidden="true"><use href="#i-ruler"/></svg>Structure</h3>
           <p>I bring Agile discipline to projects without the overhead. Clear OKRs, documented processes, and weekly momentum.</p>
         </div>
       </div>
@@ -277,22 +310,22 @@
       <h2>Core Values</h2>
       <div class="values-grid">
         <div class="value-card">
-          <div class="value-icon">🎖️</div>
+          <div class="value-icon"><svg class="ico" aria-hidden="true"><use href="#i-medal"/></svg></div>
           <div class="value-title">Integrity first</div>
           <div class="value-desc">Shaped by military service. I say what I mean, own my mistakes, and don't cut corners.</div>
         </div>
         <div class="value-card">
-          <div class="value-icon">🔬</div>
+          <div class="value-icon"><svg class="ico" aria-hidden="true"><use href="#i-microscope"/></svg></div>
           <div class="value-title">Evidence over opinion</div>
           <div class="value-desc">Every decision I advocate for is backed by data. If I don't have the data yet, I go get it.</div>
         </div>
         <div class="value-card">
-          <div class="value-icon">🚀</div>
+          <div class="value-icon"><svg class="ico" aria-hidden="true"><use href="#i-rocket"/></svg></div>
           <div class="value-title">Impact over activity</div>
           <div class="value-desc">Busy ≠ productive. I focus relentlessly on the work that actually moves the needle.</div>
         </div>
         <div class="value-card">
-          <div class="value-icon">🤝</div>
+          <div class="value-icon"><svg class="ico" aria-hidden="true"><use href="#i-handshake"/></svg></div>
           <div class="value-title">Teams win together</div>
           <div class="value-desc">The best outcomes come from empowered, informed teammates. I build systems that scale beyond me.</div>
         </div>
@@ -304,9 +337,9 @@
       <h2>Let's Connect</h2>
       <p style="margin-bottom:24px;">Whether you're looking to collaborate, hire, or just geek out about chargeback operations and AI — I'd love to hear from you.</p>
       <div class="cta-links" style="justify-content:center;">
-        <a href="contact.html">📧 Get in Touch</a>
-        <a href="cv.html" style="background:transparent;color:#9d7bd8;border:1px solid rgba(157,123,216,0.5);box-shadow:none;">📄 View Resume</a>
-        <a href="https://www.linkedin.com/in/sam-stephenson-67ab7b9" target="_blank" rel="noopener" style="background:transparent;color:#9d7bd8;border:1px solid rgba(157,123,216,0.5);box-shadow:none;">💼 LinkedIn</a>
+        <a href="contact.html"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Get in Touch</a>
+        <a href="cv.html" style="background:transparent;color:#9d7bd8;border:1px solid rgba(157,123,216,0.5);box-shadow:none;"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>View Resume</a>
+        <a href="https://www.linkedin.com/in/sam-stephenson-67ab7b9" target="_blank" rel="noopener" style="background:transparent;color:#9d7bd8;border:1px solid rgba(157,123,216,0.5);box-shadow:none;"><svg class="ico" aria-hidden="true"><use href="#i-briefcase"/></svg>LinkedIn</a>
       </div>
     </div>
 
